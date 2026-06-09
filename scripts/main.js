@@ -241,17 +241,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!plan || !demoSvg) return;
 
     let html = `
-      <rect x="10" y="10" width="460" height="240" rx="10"
-        fill="rgba(13,27,42,0.7)" stroke="rgba(0,212,255,0.13)" stroke-width="1"/>
-      <text x="22" y="28" fill="rgba(0,212,255,0.45)" font-size="7.5"
-        font-family="Poppins,sans-serif" font-weight="600" letter-spacing="1.2">
-        ${plan.label.toUpperCase()}
-      </text>
-      <rect x="18" y="${plan.corridorY}" width="444" height="${plan.corridorH}" rx="3"
-        fill="rgba(0,212,255,0.025)" stroke="rgba(0,212,255,0.07)" stroke-width="0.5"/>
-      <text x="240" y="${plan.corridorY + plan.corridorH / 2 + 3}"
-        fill="rgba(0,212,255,0.18)" font-size="5.5" font-family="Poppins,sans-serif"
-        text-anchor="middle" letter-spacing="2">CORRIDOR</text>
+      <text x="240" y="26" fill="rgba(0,212,255,0.6)" font-size="9"
+        font-family="Poppins,sans-serif" font-weight="700" letter-spacing="1.8"
+        text-anchor="middle">${plan.label.toUpperCase()}</text>
+      <rect x="14" y="${plan.corridorY}" width="452" height="${plan.corridorH}" rx="3"
+        fill="rgba(0,212,255,0.07)" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+      <text x="240" y="${plan.corridorY + plan.corridorH / 2 + 3.5}"
+        fill="rgba(0,212,255,0.4)" font-size="6.5" font-family="Poppins,sans-serif"
+        text-anchor="middle" letter-spacing="2.5" font-weight="600">CORRIDOR</text>
     `;
 
     plan.rooms.forEach(room => {
@@ -262,26 +259,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let fill, stroke, textCol, sw;
       if (isOrigin) {
-        fill = 'rgba(0,212,255,0.09)'; stroke = 'rgba(0,212,255,0.45)';
-        textCol = 'rgba(0,212,255,0.85)'; sw = 1.5;
+        fill = 'rgba(0,212,255,0.2)'; stroke = 'rgba(0,212,255,0.75)';
+        textCol = '#00d4ff'; sw = 2;
       } else if (isDest) {
-        fill = 'rgba(15,184,160,0.1)'; stroke = 'rgba(15,184,160,0.5)';
-        textCol = 'rgba(15,184,160,0.9)'; sw = 1.5;
+        fill = 'rgba(15,184,160,0.2)'; stroke = 'rgba(15,184,160,0.75)';
+        textCol = '#0fb8a0'; sw = 2;
       } else {
-        fill = 'rgba(0,212,255,0.03)'; stroke = 'rgba(0,212,255,0.18)';
-        textCol = 'rgba(255,255,255,0.32)'; sw = 0.75;
+        fill = 'rgba(255,255,255,0.07)'; stroke = 'rgba(120,170,220,0.45)';
+        textCol = 'rgba(255,255,255,0.72)'; sw = 1;
       }
 
       html += `
-        <rect x="${room.x}" y="${room.y}" width="${room.w}" height="${room.h}" rx="5"
+        <rect x="${room.x}" y="${room.y}" width="${room.w}" height="${room.h}" rx="6"
           fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>
-        <text x="${cx}" y="${cy - (isOrigin || isDest ? 6 : 0)}"
-          fill="${textCol}" font-size="7.5" font-family="Poppins,sans-serif"
+        <text x="${cx}" y="${cy - (isOrigin || isDest ? 8 : 0)}"
+          fill="${textCol}" font-size="10" font-family="Poppins,sans-serif"
           text-anchor="middle" dominant-baseline="middle"
-          font-weight="${isOrigin || isDest ? '600' : '400'}">${room.label}</text>
+          font-weight="${isOrigin || isDest ? '700' : '500'}">${room.label}</text>
       `;
-      if (isOrigin) html += `<text x="${cx}" y="${cy + 9}" fill="rgba(0,212,255,0.45)" font-size="6" font-family="Poppins,sans-serif" text-anchor="middle">You are here</text>`;
-      if (isDest)   html += `<text x="${cx}" y="${cy + 9}" fill="rgba(15,184,160,0.55)" font-size="6" font-family="Poppins,sans-serif" text-anchor="middle">Destination</text>`;
+      if (isOrigin) html += `<text x="${cx}" y="${cy + 10}" fill="rgba(0,212,255,0.65)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle" font-weight="600">You are here</text>`;
+      if (isDest)   html += `<text x="${cx}" y="${cy + 10}" fill="rgba(15,184,160,0.7)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle" font-weight="600">Destination</text>`;
     });
 
     // Origin marker
@@ -502,6 +499,358 @@ document.addEventListener('DOMContentLoaded', () => {
       if (assistPanel) assistPanel.classList.add('open');
       sessionStorage.setItem('assistShown', '1');
     }, 8000);
+  }
+
+
+  /* ----------------------------------------------------------
+     9. MULTI-PAGE ACTIVE NAV – mark the right link per page
+     ---------------------------------------------------------- */
+  (function() {
+    const currentPage = (window.location.pathname.split('/').pop() || 'index.html').split('?')[0].split('#')[0];
+    allNavLinks.forEach(link => {
+      const href     = link.getAttribute('href') || '';
+      const linkPage = href.split('/').pop().split('?')[0].split('#')[0];
+      if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        link.classList.add('active');
+      }
+    });
+  })();
+
+
+  /* ----------------------------------------------------------
+     10. ANALYTICS STUB – window.analytics.track()
+     ---------------------------------------------------------- */
+  window.analytics = window.analytics || {
+    _queue: [],
+    track(event, props) {
+      this._queue.push({ event, props, ts: Date.now() });
+      if (typeof console !== 'undefined') console.debug('[InovaRoute Analytics]', event, props);
+    }
+  };
+
+  // Hero CTA tracking
+  document.querySelectorAll('.hero .btn, .page-hero-section .btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.analytics.track('hero_cta_clicked', { label: btn.textContent.trim(), page: window.location.pathname });
+    });
+  });
+
+  // Demo launch clicks
+  document.querySelectorAll('[href*="industries.html"]').forEach(link => {
+    link.addEventListener('click', () => {
+      window.analytics.track('demo_launch_clicked', { from: window.location.pathname });
+    });
+  });
+
+  // Contact / pilot CTA clicks
+  document.querySelectorAll('[href*="contact.html"]').forEach(link => {
+    link.addEventListener('click', () => {
+      window.analytics.track('contact_cta_clicked', { label: link.textContent.trim(), from: window.location.pathname });
+    });
+  });
+
+  // Scroll depth milestones
+  const scrollMilestones = [25, 50, 75, 90];
+  const firedMilestones  = new Set();
+  window.addEventListener('scroll', () => {
+    const docH  = document.body.scrollHeight - window.innerHeight;
+    if (docH <= 0) return;
+    const pct = Math.round((window.scrollY / docH) * 100);
+    scrollMilestones.forEach(m => {
+      if (pct >= m && !firedMilestones.has(m)) {
+        firedMilestones.add(m);
+        window.analytics.track('scroll_depth', { percent: m, page: window.location.pathname });
+      }
+    });
+  }, { passive: true });
+
+
+  /* ----------------------------------------------------------
+     11. INDUSTRY PAGE – tab switching + industry-aware demo
+     ---------------------------------------------------------- */
+  const INDUSTRY_DEMOS = {
+    hospital: {
+      label: 'Ground Floor · Hospital',
+      title: 'Navigate to any ward or department',
+      origin: { id: 'entrance', label: 'Main Entrance' },
+      rooms: [
+        { id: 'entrance',  label: 'Main Entrance', x: 355, y: 168, w: 105, h: 70, isOrigin: true },
+        { id: 'reception', label: 'Reception',     x: 185, y: 168, w: 105, h: 70 },
+        { id: 'pharmacy',  label: 'Pharmacy',      x: 20,  y: 168, w: 100, h: 70 },
+        { id: 'emergency', label: 'Emergency',     x: 20,  y: 40,  w: 100, h: 80 },
+        { id: 'cafeteria', label: 'Cafeteria',     x: 185, y: 40,  w: 105, h: 80 },
+        { id: 'radiology', label: 'Radiology',     x: 340, y: 40,  w: 110, h: 80 },
+      ],
+      corridorY: 143, corridorH: 20,
+    },
+    mall: {
+      label: 'Level 1 · Shopping Mall',
+      title: 'Find any shop or service instantly',
+      origin: { id: 'entrance', label: 'Main Entrance' },
+      rooms: [
+        { id: 'entrance',  label: 'Entrance',     x: 355, y: 168, w: 105, h: 70, isOrigin: true },
+        { id: 'foodcourt', label: 'Food Court',   x: 20,  y: 168, w: 100, h: 70 },
+        { id: 'fashion',   label: 'Fashion Zone', x: 185, y: 168, w: 105, h: 70 },
+        { id: 'cinema',    label: 'Cinema',       x: 20,  y: 40,  w: 100, h: 80 },
+        { id: 'info',      label: 'Info Desk',    x: 185, y: 40,  w: 105, h: 80 },
+        { id: 'parking',   label: 'Car Park',     x: 340, y: 40,  w: 110, h: 80 },
+      ],
+      corridorY: 143, corridorH: 20,
+    },
+    airport: {
+      label: 'Terminal 1 · Airport',
+      title: 'Navigate gates, lounges & services',
+      origin: { id: 'arrivals', label: 'Arrivals Hall' },
+      rooms: [
+        { id: 'arrivals', label: 'Arrivals',    x: 355, y: 168, w: 105, h: 70, isOrigin: true },
+        { id: 'gate-a',   label: 'Gate A1',     x: 20,  y: 168, w: 100, h: 70 },
+        { id: 'gate-b',   label: 'Gate B2',     x: 185, y: 168, w: 105, h: 70 },
+        { id: 'dutyfree', label: 'Duty Free',   x: 20,  y: 40,  w: 100, h: 80 },
+        { id: 'checkin',  label: 'Check-in',    x: 185, y: 40,  w: 105, h: 80 },
+        { id: 'lounge',   label: 'VIP Lounge',  x: 340, y: 40,  w: 110, h: 80 },
+      ],
+      corridorY: 143, corridorH: 20,
+    },
+    university: {
+      label: 'Main Building · University',
+      title: 'Guide students to any room or facility',
+      origin: { id: 'gate', label: 'Main Gate' },
+      rooms: [
+        { id: 'gate',    label: 'Main Gate',    x: 355, y: 168, w: 105, h: 70, isOrigin: true },
+        { id: 'library', label: 'Library',      x: 20,  y: 168, w: 100, h: 70 },
+        { id: 'lab',     label: 'Computer Lab', x: 185, y: 168, w: 105, h: 70 },
+        { id: 'lecture', label: 'Lecture Hall', x: 20,  y: 40,  w: 100, h: 80 },
+        { id: 'admin',   label: 'Admin Office', x: 185, y: 40,  w: 105, h: 80 },
+        { id: 'canteen', label: 'Canteen',      x: 340, y: 40,  w: 110, h: 80 },
+      ],
+      corridorY: 143, corridorH: 20,
+    },
+    office: {
+      label: 'Ground Floor · Office Complex',
+      title: 'Navigate offices, meeting rooms & services',
+      origin: { id: 'reception', label: 'Reception' },
+      rooms: [
+        { id: 'reception', label: 'Reception',    x: 355, y: 168, w: 105, h: 70, isOrigin: true },
+        { id: 'meeting-a', label: 'Meeting Rm A', x: 20,  y: 168, w: 100, h: 70 },
+        { id: 'it-dept',   label: 'IT Dept',      x: 185, y: 168, w: 105, h: 70 },
+        { id: 'hr',        label: 'HR Office',    x: 20,  y: 40,  w: 100, h: 80 },
+        { id: 'cafeteria', label: 'Cafeteria',    x: 185, y: 40,  w: 105, h: 80 },
+        { id: 'exec',      label: 'Executive',    x: 340, y: 40,  w: 110, h: 80 },
+      ],
+      corridorY: 143, corridorH: 20,
+    },
+  };
+
+  const indTabs   = document.querySelectorAll('.ind-tab');
+  const indPanels = document.querySelectorAll('.ind-panel');
+  let   currentIndustry = 'hospital';
+
+  function switchIndustry(industry) {
+    currentIndustry = industry;
+    indTabs.forEach(t => t.classList.toggle('active', t.dataset.industry === industry));
+    indPanels.forEach(p => p.classList.toggle('active', p.id === 'ind-panel-' + industry));
+    loadIndDemo(industry);
+    window.analytics && window.analytics.track('industry_tab_switched', { industry });
+  }
+
+  indTabs.forEach(tab => {
+    tab.addEventListener('click', () => switchIndustry(tab.dataset.industry));
+  });
+
+  // Industry demo elements (industries.html)
+  const indDemoSvg   = document.getElementById('ind-demo-svg');
+  const indDestSel   = document.getElementById('indDemoDest');
+  const indFindBtn   = document.getElementById('indDemoFindBtn');
+  const indResult    = document.getElementById('indDemoResult');
+  const indEta       = document.getElementById('indDemoEta');
+  const indDist      = document.getElementById('indDemoDist');
+  const indOriginLbl = document.getElementById('indDemoOriginLabel');
+  const indTitle     = document.getElementById('indDemoTitle');
+
+  let indSelectedDest = null;
+  let indAnimFrame    = null;
+  let indRoutePath    = null;
+  let indMovingDot    = null;
+
+  function renderIndFloor(plan, destId) {
+    if (!indDemoSvg) return;
+
+    let html = `
+      <text x="240" y="26" fill="rgba(0,212,255,0.6)" font-size="9"
+        font-family="Poppins,sans-serif" font-weight="700" letter-spacing="1.8"
+        text-anchor="middle">${plan.label.toUpperCase()}</text>
+      <rect x="14" y="${plan.corridorY}" width="452" height="${plan.corridorH}" rx="3"
+        fill="rgba(0,212,255,0.07)" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+      <text x="240" y="${plan.corridorY + plan.corridorH / 2 + 3.5}"
+        fill="rgba(0,212,255,0.4)" font-size="6.5" font-family="Poppins,sans-serif"
+        text-anchor="middle" letter-spacing="2.5" font-weight="600">CORRIDOR</text>
+    `;
+
+    plan.rooms.forEach(room => {
+      const cx = room.x + room.w / 2;
+      const cy = room.y + room.h / 2;
+      const isOrigin = room.isOrigin;
+      const isDest   = room.id === destId;
+
+      let fill, stroke, textCol, sw;
+      if (isOrigin) {
+        fill = 'rgba(0,212,255,0.2)'; stroke = 'rgba(0,212,255,0.75)';
+        textCol = '#00d4ff'; sw = 2;
+      } else if (isDest) {
+        fill = 'rgba(15,184,160,0.2)'; stroke = 'rgba(15,184,160,0.75)';
+        textCol = '#0fb8a0'; sw = 2;
+      } else {
+        fill = 'rgba(255,255,255,0.07)'; stroke = 'rgba(120,170,220,0.45)';
+        textCol = 'rgba(255,255,255,0.72)'; sw = 1;
+      }
+
+      html += `
+        <rect x="${room.x}" y="${room.y}" width="${room.w}" height="${room.h}" rx="6"
+          fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>
+        <text x="${cx}" y="${cy - (isOrigin || isDest ? 8 : 0)}"
+          fill="${textCol}" font-size="10" font-family="Poppins,sans-serif"
+          text-anchor="middle" dominant-baseline="middle"
+          font-weight="${isOrigin || isDest ? '700' : '500'}">${room.label}</text>
+      `;
+      if (isOrigin) html += `<text x="${cx}" y="${cy + 10}" fill="rgba(0,212,255,0.65)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle" font-weight="600">You are here</text>`;
+      if (isDest)   html += `<text x="${cx}" y="${cy + 10}" fill="rgba(15,184,160,0.7)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle" font-weight="600">Destination</text>`;
+    });
+
+    const origin = plan.rooms.find(r => r.isOrigin);
+    const oc = getCenter(origin);
+    html += `
+      <circle cx="${oc.x}" cy="${oc.y}" r="14" fill="rgba(0,212,255,0.08)" class="pulse-outer"/>
+      <circle cx="${oc.x}" cy="${oc.y}" r="8"  fill="rgba(0,212,255,0.2)"  class="pulse-inner"/>
+      <circle cx="${oc.x}" cy="${oc.y}" r="5"  fill="#00d4ff" filter="url(#indGlow)"/>
+      <circle cx="${oc.x}" cy="${oc.y}" r="2.5" fill="white"/>
+    `;
+
+    if (destId) {
+      const dest = plan.rooms.find(r => r.id === destId);
+      if (dest) {
+        const dc = getCenter(dest);
+        html += `<circle cx="${dc.x}" cy="${dc.y}" r="6" fill="#0fb8a0" filter="url(#indGlow)"/><circle cx="${dc.x}" cy="${dc.y}" r="3" fill="white"/>`;
+      }
+    }
+
+    html += `<path id="ind-route-path" fill="none" stroke="url(#indRouteGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d=""/>`;
+    html += `<circle id="ind-moving-dot" cx="-20" cy="-20" r="5.5" fill="white" filter="url(#indGlow)"/>`;
+
+    const defs = indDemoSvg.querySelector('defs');
+    indDemoSvg.innerHTML = (defs ? defs.outerHTML : '') + html;
+    indRoutePath = document.getElementById('ind-route-path');
+    indMovingDot = document.getElementById('ind-moving-dot');
+  }
+
+  function loadIndDemo(industry) {
+    const plan = INDUSTRY_DEMOS[industry];
+    if (!plan || !indDemoSvg) return;
+
+    if (indTitle)     indTitle.textContent     = plan.title;
+    if (indOriginLbl) indOriginLbl.textContent = plan.origin.label;
+
+    if (indDestSel) {
+      indDestSel.innerHTML = '<option value="">Select destination…</option>';
+      plan.rooms.filter(r => !r.isOrigin).forEach(room => {
+        const opt = document.createElement('option');
+        opt.value       = room.id;
+        opt.textContent = room.label;
+        indDestSel.appendChild(opt);
+      });
+    }
+
+    indSelectedDest = null;
+    if (indFindBtn) indFindBtn.disabled = true;
+    if (indResult)  indResult.style.display = 'none';
+    if (indAnimFrame) cancelAnimationFrame(indAnimFrame);
+    renderIndFloor(plan, null);
+  }
+
+  if (indDestSel) {
+    indDestSel.addEventListener('change', () => {
+      indSelectedDest = indDestSel.value || null;
+      if (indFindBtn) indFindBtn.disabled = !indSelectedDest;
+      if (indResult)  indResult.style.display = 'none';
+      if (indAnimFrame) cancelAnimationFrame(indAnimFrame);
+      const plan = INDUSTRY_DEMOS[currentIndustry];
+      if (plan) renderIndFloor(plan, indSelectedDest);
+    });
+  }
+
+  if (indFindBtn) {
+    indFindBtn.addEventListener('click', () => {
+      if (!indSelectedDest) return;
+      const plan   = INDUSTRY_DEMOS[currentIndustry];
+      const origin = plan.rooms.find(r => r.isOrigin);
+      const dest   = plan.rooms.find(r => r.id === indSelectedDest);
+      if (!origin || !dest) return;
+
+      const pathD  = buildRouteD(origin, dest, plan);
+      const svgLen = routeLength(origin, dest, plan);
+      const metres  = Math.round(svgLen * 0.35);
+      const minutes = Math.max(1, Math.round(metres / 50));
+
+      if (indEta)  indEta.textContent  = minutes + ' min';
+      if (indDist) indDist.textContent = metres  + ' m';
+      if (indResult) indResult.style.display = 'flex';
+
+      renderIndFloor(plan, indSelectedDest);
+      indRoutePath = document.getElementById('ind-route-path');
+      indMovingDot = document.getElementById('ind-moving-dot');
+      if (!indRoutePath) return;
+
+      indRoutePath.setAttribute('d', pathD);
+      const pLen = indRoutePath.getTotalLength();
+      indRoutePath.style.strokeDasharray  = pLen;
+      indRoutePath.style.strokeDashoffset = pLen;
+
+      const drawDuration = 1200;
+      const startDraw    = performance.now();
+
+      function indDrawStep(now) {
+        const t = Math.min((now - startDraw) / drawDuration, 1);
+        indRoutePath.style.strokeDashoffset = pLen * (1 - t);
+        if (t < 1) {
+          indAnimFrame = requestAnimationFrame(indDrawStep);
+        } else {
+          indMoveMarker(pLen);
+        }
+      }
+
+      if (indAnimFrame) cancelAnimationFrame(indAnimFrame);
+      indAnimFrame = requestAnimationFrame(indDrawStep);
+
+      window.analytics && window.analytics.track('demo_route_found', {
+        industry: currentIndustry,
+        destination: indSelectedDest,
+        eta: minutes,
+        distance: metres,
+      });
+    });
+  }
+
+  function indMoveMarker(pLen) {
+    if (!indMovingDot || !indRoutePath) return;
+    const moveDuration = 1800;
+    const startMove    = performance.now();
+
+    function indMoveStep(now) {
+      const t     = Math.min((now - startMove) / moveDuration, 1);
+      const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      const pt    = indRoutePath.getPointAtLength(eased * pLen);
+      indMovingDot.setAttribute('cx', pt.x);
+      indMovingDot.setAttribute('cy', pt.y);
+      if (t < 1) indAnimFrame = requestAnimationFrame(indMoveStep);
+    }
+    indAnimFrame = requestAnimationFrame(indMoveStep);
+  }
+
+  // Init industry page: activate tab from URL param or default to hospital
+  if (indTabs.length) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam  = urlParams.get('tab');
+    const initInd   = (tabParam && INDUSTRY_DEMOS[tabParam]) ? tabParam : 'hospital';
+    switchIndustry(initInd);
   }
 
 });

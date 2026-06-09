@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Pilot â€“ InovaRoute</title>
+  <meta name="description" content="Request a free InovaRoute pilot for your facility. Book a live demo or send us a message. We respond within 24 hours.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='14' height='14' x='1' y='1' rx='3' fill='%233498db'/><rect width='14' height='14' x='17' y='1' rx='3' fill='%232ecc71'/><rect width='14' height='14' x='1' y='17' rx='3' fill='%23f39c12'/><rect width='14' height='14' x='17' y='17' rx='3' fill='%23e74c3c'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    /* Stepped form styles */
+    .pilot-form-wrap {
+      background: #fff;
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6);
+      box-shadow: var(--sh-md);
+    }
+    .step-progress {
+      display: flex;
+      gap: 0;
+      margin-bottom: var(--sp-5);
+    }
+    .step-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+    .step-item::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      right: -50%;
+      height: 2px;
+      background: var(--c-border);
+      z-index: 0;
+    }
+    .step-item:last-child::after { display: none; }
+    .step-item.done::after { background: var(--c-blue); }
+    .step-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--c-bg-light);
+      border: 2px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--c-text-muted);
+      z-index: 1;
+      transition: all 0.3s;
+    }
+    .step-item.active .step-dot {
+      background: var(--c-blue);
+      border-color: var(--c-blue);
+      color: #fff;
+    }
+    .step-item.done .step-dot {
+      background: var(--c-blue);
+      border-color: var(--c-blue);
+      color: #fff;
+    }
+    .step-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--c-text-muted);
+      text-align: center;
+    }
+    .step-item.active .step-label { color: var(--c-blue); }
+    .form-step { display: none; animation: fadeIn 0.3s ease; }
+    .form-step.active { display: block; }
+    .step-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--c-text-dark);
+      margin-bottom: 4px;
+    }
+    .step-sub {
+      font-size: 0.85rem;
+      color: var(--c-text-body);
+      margin-bottom: var(--sp-4);
+    }
+    .facility-type-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: var(--sp-4);
+    }
+    .ft-option {
+      border: 2px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: 16px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .ft-option:hover { border-color: var(--c-blue); background: #f0f7ff; }
+    .ft-option.selected { border-color: var(--c-blue); background: rgba(52,152,219,0.08); }
+    .ft-option i { font-size: 1.4rem; color: var(--c-blue); display: block; margin-bottom: 6px; }
+    .ft-option span { font-size: 0.78rem; font-weight: 600; color: var(--c-text-dark); }
+    .step-nav {
+      display: flex;
+      gap: var(--sp-2);
+      margin-top: var(--sp-4);
+      justify-content: space-between;
+    }
+    .btn-step-back {
+      padding: 11px 24px;
+      background: transparent;
+      border: 1.5px solid var(--c-border);
+      border-radius: var(--r-pill);
+      color: var(--c-text-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-step-back:hover { border-color: var(--c-text-dark); color: var(--c-text-dark); }
+    .btn-step-next {
+      padding: 11px 28px;
+      background: var(--c-blue);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-pill);
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-step-next:hover { background: #2980b9; transform: translateY(-1px); }
+    /* Booking slots */
+    .slots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: var(--sp-4);
+    }
+    .slot-option {
+      border: 2px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fff;
+    }
+    .slot-option:hover { border-color: var(--c-blue); background: #f0f7ff; }
+    .slot-option.selected { border-color: var(--c-blue); background: rgba(52,152,219,0.08); }
+    .slot-date { font-size: 0.8rem; font-weight: 700; color: var(--c-text-dark); }
+    .slot-time { font-size: 0.75rem; color: var(--c-text-body); margin-top: 2px; }
+    .slot-badge { font-size: 0.65rem; background: #eafaf1; color: #27ae60; padding: 2px 8px; border-radius: 10px; font-weight: 600; display: inline-block; margin-top: 4px; }
+    @media (max-width: 680px) {
+      .facility-type-grid { grid-template-columns: repeat(2, 1fr); }
+      .slots-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar--light" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo"><span></span><span></span><span></span><span></span></div>
+      <span class="nav-name">InovaRoute</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html"      class="nav-link">Home</a></li>
+      <li><a href="products.html"   class="nav-link">Products</a></li>
+      <li><a href="industries.html" class="nav-link">Industries</a></li>
+      <li><a href="about.html"      class="nav-link">About</a></li>
+      <li><a href="contact.html"    class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html"    class="nav-btn-ghost">Request Pilot</a>
+      <a href="industries.html" class="nav-btn-solid">Live Demo</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero-section">
+  <div class="container">
+    <div class="page-hero-eyebrow"><i class="fas fa-paper-plane"></i> Get Started</div>
+    <h1 class="page-hero-title">Request a <span>Free Pilot</span></h1>
+    <p class="page-hero-sub">Tell us about your facility and we'll build a custom deployment plan â€” including a live demo using your own floor plans â€” at no cost.</p>
+  </div>
+</section>
+
+
+<!-- CONTACT LAYOUT -->
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Left: Info -->
+      <div class="contact-info fade-up">
+        <h3>Contact InovaRoute</h3>
+
+        <div class="contact-detail">
+          <div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="cd-text">
+            <strong>Location</strong>
+            <span>84 Riverside Dr, Nairobi, Kenya</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="cd-icon"><i class="fas fa-envelope"></i></div>
+          <div class="cd-text">
+            <strong>Email</strong>
+            <a href="mailto:info@inovaroute.co.ke">info@inovaroute.co.ke</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="cd-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="cd-text">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank">Chat with us directly</a>
+          </div>
+        </div>
+
+        <!-- What to expect -->
+        <div style="margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px solid var(--c-border);">
+          <h4 style="font-size:0.9rem;font-weight:700;color:var(--c-text-dark);margin-bottom:var(--sp-3);">What happens after you submit?</h4>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(52,152,219,0.12);border:1px solid rgba(52,152,219,0.25);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:var(--c-blue);flex-shrink:0;">1</div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:700;color:var(--c-text-dark);">We review your details</div>
+                <div style="font-size:0.78rem;color:var(--c-text-body);">Within 24 hours of submission</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(52,152,219,0.12);border:1px solid rgba(52,152,219,0.25);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:var(--c-blue);flex-shrink:0;">2</div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:700;color:var(--c-text-dark);">We map your building</div>
+                <div style="font-size:0.78rem;color:var(--c-text-body);">We use your floor plans to build a live demo</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(52,152,219,0.12);border:1px solid rgba(52,152,219,0.25);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:var(--c-blue);flex-shrink:0;">3</div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:700;color:var(--c-text-dark);">Live demo session</div>
+                <div style="font-size:0.78rem;color:var(--c-text-body);">Show you navigation working in your facility</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(52,152,219,0.12);border:1px solid rgba(52,152,219,0.25);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:var(--c-blue);flex-shrink:0;">4</div>
+              <div>
+                <div style="font-size:0.82rem;font-weight:700;color:var(--c-text-dark);">Custom deployment plan</div>
+                <div style="font-size:0.78rem;color:var(--c-text-body);">Pricing, timeline, and implementation scope</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" class="soc-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/inovaroutetech?igsh=aXVvbjA5ZzNsaHh5" target="_blank" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1BY43MmHNZ/" target="_blank" class="soc-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+
+      <!-- Right: Stepped Pilot Form -->
+      <div class="fade-up">
+        <div class="pilot-form-wrap" id="pilotFormWrap">
+
+          <!-- Step progress indicator -->
+          <div class="step-progress" id="stepProgress">
+            <div class="step-item active" data-step="1">
+              <div class="step-dot">1</div>
+              <div class="step-label">Facility</div>
+            </div>
+            <div class="step-item" data-step="2">
+              <div class="step-dot">2</div>
+              <div class="step-label">Details</div>
+            </div>
+            <div class="step-item" data-step="3">
+              <div class="step-dot">3</div>
+              <div class="step-label">Contact</div>
+            </div>
+            <div class="step-item" data-step="4">
+              <div class="step-dot">4</div>
+              <div class="step-label">Booking</div>
+            </div>
+          </div>
+
+
+          <!-- STEP 1: Facility Type -->
+          <div class="form-step active" id="form-step-1">
+            <div class="step-title">What type of facility are you managing?</div>
+            <div class="step-sub">This helps us prepare the right demo for your specific environment.</div>
+
+            <div class="facility-type-grid" id="facilityTypeGrid">
+              <div class="ft-option" data-value="hospital" onclick="selectFacility(this)">
+                <i class="fas fa-hospital"></i>
+                <span>Hospital</span>
+              </div>
+              <div class="ft-option" data-value="mall" onclick="selectFacility(this)">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Shopping Mall</span>
+              </div>
+              <div class="ft-option" data-value="airport" onclick="selectFacility(this)">
+                <i class="fas fa-plane-departure"></i>
+                <span>Airport</span>
+              </div>
+              <div class="ft-option" data-value="university" onclick="selectFacility(this)">
+                <i class="fas fa-university"></i>
+                <span>University</span>
+              </div>
+              <div class="ft-option" data-value="office" onclick="selectFacility(this)">
+                <i class="fas fa-building"></i>
+                <span>Office Complex</span>
+              </div>
+              <div class="ft-option" data-value="other" onclick="selectFacility(this)">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Other</span>
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <span></span>
+              <button class="btn-step-next" onclick="nextStep(2)">
+                Continue <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+
+          <!-- STEP 2: Facility Details -->
+          <div class="form-step" id="form-step-2">
+            <div class="step-title">Tell us about your facility</div>
+            <div class="step-sub">We use this to size your deployment and estimate hardware requirements.</div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p-company">Company / Organisation *</label>
+                <input type="text" id="p-company" placeholder="e.g. Kenyatta National Hospital" required>
+              </div>
+              <div class="form-field">
+                <label for="p-country">Country *</label>
+                <select id="p-country" required>
+                  <option value="">Select countryâ€¦</option>
+                  <option>Kenya</option>
+                  <option>Uganda</option>
+                  <option>Tanzania</option>
+                  <option>Rwanda</option>
+                  <option>Ethiopia</option>
+                  <option>Nigeria</option>
+                  <option>South Africa</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p-floors">Number of Floors *</label>
+                <select id="p-floors" required>
+                  <option value="">Selectâ€¦</option>
+                  <option>1â€“2 floors</option>
+                  <option>3â€“5 floors</option>
+                  <option>6â€“10 floors</option>
+                  <option>10+ floors</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="p-users">Expected Daily Users</label>
+                <select id="p-users">
+                  <option value="">Selectâ€¦</option>
+                  <option>Under 500</option>
+                  <option>500â€“2,000</option>
+                  <option>2,000â€“10,000</option>
+                  <option>10,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="p-usecase">What problem are you trying to solve? *</label>
+              <textarea id="p-usecase" placeholder="e.g. Patients get lost finding wards, staff spend too much time giving directions, we can't track our equipmentâ€¦" rows="3" required></textarea>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-step-back" onclick="prevStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn-step-next" onclick="nextStep(3)">Continue <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+
+          <!-- STEP 3: Contact Details -->
+          <div class="form-step" id="form-step-3">
+            <div class="step-title">How should we reach you?</div>
+            <div class="step-sub">We'll use these details to confirm your demo booking and send the deployment plan.</div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="p-name">Full Name *</label>
+                <input type="text" id="p-name" placeholder="Your full name" required>
+              </div>
+              <div class="form-field">
+                <label for="p-role">Job Title / Role</label>
+                <input type="text" id="p-role" placeholder="e.g. Facility Manager">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="p-email">Email Address *</label>
+              <input type="email" id="p-email" placeholder="you@organisation.com" required>
+            </div>
+
+            <div class="form-field">
+              <label for="p-phone">Phone / WhatsApp (optional)</label>
+              <input type="tel" id="p-phone" placeholder="+254 7XX XXX XXX">
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-step-back" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn-step-next" onclick="nextStep(4)">Continue <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+
+          <!-- STEP 4: Demo Booking -->
+          <div class="form-step" id="form-step-4">
+            <div class="step-title">Book your live demo session</div>
+            <div class="step-sub">Choose a slot that works for you. All sessions are 30 minutes via video call.</div>
+
+            <div class="slots-grid" id="slotsGrid">
+              <div class="slot-option" data-slot="mon-9am" onclick="selectSlot(this)">
+                <div class="slot-date"><i class="fas fa-calendar" style="color:var(--c-blue);margin-right:5px"></i> Mon, 16 Jun 2026</div>
+                <div class="slot-time"><i class="fas fa-clock" style="color:var(--c-text-muted);margin-right:5px"></i> 9:00 AM â€“ 9:30 AM EAT</div>
+                <span class="slot-badge">Available</span>
+              </div>
+              <div class="slot-option" data-slot="mon-2pm" onclick="selectSlot(this)">
+                <div class="slot-date"><i class="fas fa-calendar" style="color:var(--c-blue);margin-right:5px"></i> Mon, 16 Jun 2026</div>
+                <div class="slot-time"><i class="fas fa-clock" style="color:var(--c-text-muted);margin-right:5px"></i> 2:00 PM â€“ 2:30 PM EAT</div>
+                <span class="slot-badge">Available</span>
+              </div>
+              <div class="slot-option" data-slot="tue-10am" onclick="selectSlot(this)">
+                <div class="slot-date"><i class="fas fa-calendar" style="color:var(--c-blue);margin-right:5px"></i> Tue, 17 Jun 2026</div>
+                <div class="slot-time"><i class="fas fa-clock" style="color:var(--c-text-muted);margin-right:5px"></i> 10:00 AM â€“ 10:30 AM EAT</div>
+                <span class="slot-badge">Available</span>
+              </div>
+              <div class="slot-option" data-slot="wed-3pm" onclick="selectSlot(this)">
+                <div class="slot-date"><i class="fas fa-calendar" style="color:var(--c-blue);margin-right:5px"></i> Wed, 18 Jun 2026</div>
+                <div class="slot-time"><i class="fas fa-clock" style="color:var(--c-text-muted);margin-right:5px"></i> 3:00 PM â€“ 3:30 PM EAT</div>
+                <span class="slot-badge">Available</span>
+              </div>
+            </div>
+
+            <div class="form-field" style="margin-top:0">
+              <label for="p-notes">Anything specific you'd like us to demo?</label>
+              <input type="text" id="p-notes" placeholder="e.g. Show me asset tracking for ICU equipment">
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-step-back" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="btn-step-next" id="submitPilotBtn" onclick="submitPilot()" style="background:var(--c-teal);">
+                <i class="fas fa-paper-plane"></i> Submit Request
+              </button>
+            </div>
+          </div>
+
+
+          <!-- SUCCESS STATE -->
+          <div class="form-success" id="pilotSuccess">
+            <div class="form-success-icon"><i class="fas fa-check"></i></div>
+            <h4>Pilot Request Received!</h4>
+            <p>Thank you. Our team will confirm your demo booking within 24 hours and begin mapping your facility right away.</p>
+            <a href="index.html" class="btn btn-outline btn-sm" style="margin-top:8px;">Back to Home</a>
+          </div>
+
+        </div>
+
+        <!-- Quick contact alternative -->
+        <div style="text-align:center;margin-top:var(--sp-4);">
+          <p style="font-size:0.82rem;color:var(--c-text-muted);">Prefer to talk directly?</p>
+          <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" class="btn btn-outline btn-sm" style="margin-top:8px;">
+            <i class="fab fa-whatsapp" style="color:#25D366"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <div class="nav-logo" style="width:20px;height:20px;gap:2px"><span></span><span></span><span></span><span></span></div>
+          <span class="f-name">InovaRoute</span>
+        </div>
+        <p class="footer-tagline">AI-Powered Indoor Navigation &amp; Smart Facility Platform.</p>
+        <div class="footer-ctas">
+          <a href="industries.html" class="btn btn-primary btn-sm">Live Demo</a>
+          <a href="contact.html"    class="btn btn-secondary btn-sm">Request Pilot</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#inovamap">InovaMap</a></li>
+          <li><a href="products.html#inovanode">InovaNode</a></li>
+          <li><a href="products.html#inovahub">InovaHub</a></li>
+          <li><a href="products.html#dashboard">Admin Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="industries.html?tab=hospital">Hospitals</a></li>
+          <li><a href="industries.html?tab=mall">Shopping Malls</a></li>
+          <li><a href="industries.html?tab=airport">Airports</a></li>
+          <li><a href="industries.html?tab=university">Universities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Get in Touch</a></li>
+          <li><a href="mailto:info@inovaroute.co.ke">info@inovaroute.co.ke</a></li>
+          <li>84 Riverside Dr, Nairobi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 InovaRoute Tech. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/inovaroutetech?igsh=aXVvbjA5ZzNsaHh5" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1BY43MmHNZ/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="assist" id="assist">
+  <button class="assist-bubble" id="assist-open" aria-label="Open assistant"><i class="fas fa-comment-dots"></i></button>
+  <div class="assist-panel" id="assist-panel">
+    <div class="assist-header">
+      <h4>Need help?</h4>
+      <button class="assist-close" id="assist-close">&times;</button>
+    </div>
+    <p class="assist-text">InovaRoute support is available 24/7.</p>
+    <div class="assist-actions">
+      <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" class="assist-btn-main"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      <button class="assist-btn-dismiss" id="assist-no">No thanks</button>
+    </div>
+  </div>
+</div>
+
+<script src="scripts/main.js" defer></script>
+<script>
+  // Stepped form logic
+  let currentStep = 1;
+  let selectedFacilityType = '';
+  let selectedSlot = '';
+
+  function selectFacility(el) {
+    document.querySelectorAll('.ft-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedFacilityType = el.dataset.value;
+    window.analytics && window.analytics.track('facility_type_selected', { type: selectedFacilityType });
+  }
+
+  function selectSlot(el) {
+    document.querySelectorAll('.slot-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedSlot = el.dataset.slot;
+  }
+
+  function nextStep(n) {
+    // Simple validation
+    if (n === 2 && !selectedFacilityType) {
+      alert('Please select your facility type to continue.');
+      return;
+    }
+    if (n === 3) {
+      const company = document.getElementById('p-company').value.trim();
+      const country = document.getElementById('p-country').value;
+      const floors  = document.getElementById('p-floors').value;
+      const usecase = document.getElementById('p-usecase').value.trim();
+      if (!company || !country || !floors || !usecase) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+    }
+    if (n === 4) {
+      const name  = document.getElementById('p-name').value.trim();
+      const email = document.getElementById('p-email').value.trim();
+      if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter your name and a valid email address.');
+        return;
+      }
+    }
+    document.getElementById('form-step-' + currentStep).classList.remove('active');
+    currentStep = n;
+    document.getElementById('form-step-' + n).classList.add('active');
+    updateProgress(n);
+    window.analytics && window.analytics.track('pilot_step_completed', { step: n - 1 });
+  }
+
+  function prevStep(n) {
+    document.getElementById('form-step-' + currentStep).classList.remove('active');
+    currentStep = n;
+    document.getElementById('form-step-' + n).classList.add('active');
+    updateProgress(n);
+  }
+
+  function updateProgress(step) {
+    document.querySelectorAll('.step-item').forEach((item, idx) => {
+      const s = idx + 1;
+      item.classList.toggle('active', s === step);
+      item.classList.toggle('done',   s < step);
+    });
+  }
+
+  function submitPilot() {
+    const name     = document.getElementById('p-name').value;
+    const company  = document.getElementById('p-company').value;
+    const email    = document.getElementById('p-email').value;
+    const country  = document.getElementById('p-country').value;
+    const floors   = document.getElementById('p-floors').value;
+    const users    = document.getElementById('p-users').value;
+    const usecase  = document.getElementById('p-usecase').value;
+    const role     = document.getElementById('p-role').value;
+    const phone    = document.getElementById('p-phone').value;
+    const notes    = document.getElementById('p-notes').value;
+
+    const body = `Pilot Request%0A%0AName: ${encodeURIComponent(name)}%0ARole: ${encodeURIComponent(role)}%0ACompany: ${encodeURIComponent(company)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0A%0ACountry: ${encodeURIComponent(country)}%0AFacility Type: ${encodeURIComponent(selectedFacilityType)}%0AFloors: ${encodeURIComponent(floors)}%0AExpected Users: ${encodeURIComponent(users)}%0A%0AUse Case:%0A${encodeURIComponent(usecase)}%0A%0ADemo Slot: ${encodeURIComponent(selectedSlot)}%0ANotes: ${encodeURIComponent(notes)}`;
+
+    window.location.href = `mailto:info@inovaroute.co.ke?subject=Pilot Request â€“ ${encodeURIComponent(company)}&body=${body}`;
+
+    window.analytics && window.analytics.track('pilot_form_submitted', {
+      facilityType: selectedFacilityType,
+      country, floors, users, slot: selectedSlot
+    });
+
+    setTimeout(() => {
+      document.getElementById('form-step-4').classList.remove('active');
+      document.getElementById('stepProgress').style.display = 'none';
+      document.getElementById('pilotSuccess').classList.add('show');
+    }, 500);
+  }
+</script>
+</body>
+</html>
+

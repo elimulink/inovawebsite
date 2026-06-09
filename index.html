@@ -1,94 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
   <title>InovaRoute – AI Indoor Navigation & Smart Facility Platform</title>
   <meta name="description" content="InovaRoute delivers AI-powered indoor navigation, real-time asset tracking, and smart facility management for hospitals, malls, airports, and large buildings across Africa.">
   <meta name="keywords" content="indoor navigation, asset tracking, smart facility, InovaMap, InovaNode, hospital navigation, mall navigation, Kenya, Africa">
   <meta name="author" content="InovaRoute Tech">
   <link rel="canonical" href="https://elimulink.github.io/inovawebsite/">
-
-  <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elimulink.github.io/inovawebsite/">
   <meta property="og:title" content="InovaRoute – AI Indoor Navigation & Smart Facility Platform">
   <meta property="og:description" content="AI-powered indoor navigation, asset tracking, and smart facility management for hospitals, malls, airports, and more.">
   <meta property="og:site_name" content="InovaRoute">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="InovaRoute – AI Indoor Navigation & Smart Facility Platform">
   <meta name="twitter:description" content="AI-powered indoor navigation, asset tracking, and smart facility management.">
-
-  <!-- Favicon (SVG inline) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='14' height='14' x='1' y='1' rx='3' fill='%233498db'/><rect width='14' height='14' x='17' y='1' rx='3' fill='%232ecc71'/><rect width='14' height='14' x='1' y='17' rx='3' fill='%23f39c12'/><rect width='14' height='14' x='17' y='17' rx='3' fill='%23e74c3c'/></svg>">
-
-  <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "InovaRoute",
-    "url": "https://elimulink.github.io/inovawebsite/",
-    "description": "AI-powered indoor navigation and smart facility platform",
-    "email": "info@inovaroute.co.ke",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "84 Riverside Dr",
-      "addressLocality": "Nairobi",
-      "addressCountry": "KE"
-    },
-    "sameAs": [
-      "https://www.instagram.com/inovaroutetech",
-      "https://www.facebook.com/share/1BY43MmHNZ/"
-    ]
-  }
+  {"@context":"https://schema.org","@type":"Organization","name":"InovaRoute","url":"https://elimulink.github.io/inovawebsite/","description":"AI-powered indoor navigation and smart facility platform","email":"info@inovaroute.co.ke","address":{"@type":"PostalAddress","streetAddress":"84 Riverside Dr","addressLocality":"Nairobi","addressCountry":"KE"},"sameAs":["https://www.instagram.com/inovaroutetech","https://www.facebook.com/share/1BY43MmHNZ/"]}
   </script>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles/variables.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 
-<!-- ============================================================
-     NAVBAR
-     ============================================================ -->
-<nav class="navbar" id="navbar">
+<!-- NAVBAR -->
+<nav class="navbar navbar--light" id="navbar">
   <div class="nav-inner">
-    <a href="#home" class="nav-brand">
-      <div class="nav-logo">
-        <span></span><span></span><span></span><span></span>
-      </div>
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo"><span></span><span></span><span></span><span></span></div>
       <span class="nav-name">InovaRoute</span>
     </a>
-
     <ul class="nav-links" id="nav-links">
-      <li><a href="#home"         class="nav-link active">Home</a></li>
-      <li><a href="#products"     class="nav-link">Products</a></li>
-      <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-      <li><a href="#solutions"    class="nav-link">Solutions</a></li>
-      <li><a href="#industries"   class="nav-link">Industries</a></li>
-      <li><a href="#about-us"     class="nav-link">About</a></li>
-      <li><a href="#contact"      class="nav-link">Contact</a></li>
+      <li><a href="index.html"      class="nav-link">Home</a></li>
+      <li><a href="products.html"   class="nav-link">Products</a></li>
+      <li><a href="industries.html" class="nav-link">Industries</a></li>
+      <li><a href="about.html"      class="nav-link">About</a></li>
+      <li><a href="contact.html"    class="nav-link">Contact</a></li>
     </ul>
-
     <div class="nav-actions">
-      <a href="#contact" class="nav-btn-ghost">Request Pilot</a>
-      <a href="#demo"    class="nav-btn-solid">Launch InovaMap</a>
+      <a href="contact.html"    class="nav-btn-ghost">Request Pilot</a>
+      <a href="industries.html" class="nav-btn-solid">Live Demo</a>
     </div>
-
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -96,189 +54,137 @@
 </nav>
 
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<section id="home" style="background:linear-gradient(135deg,#080f1a 0%,#0a1628 55%,#0d1f3a 100%); padding-top:0;">
-<div class="hero">
+<!-- HERO – Light Theme, 3D Product Stage -->
+<section class="hero-light-section" id="home">
+  <div class="container">
+    <div class="hero-light-inner">
 
-  <!-- Left: Copy -->
-  <div class="hero-copy">
-    <div class="hero-eyebrow">
-      <span class="dot"></span>
-      AI Indoor Infrastructure Platform
-    </div>
-
-    <h1 class="hero-title">
-      Navigate Buildings<br><span>Intelligently</span>
-    </h1>
-
-    <p class="hero-sub">
-      AI-powered indoor navigation, real-time asset tracking, and smart facility operations — built for hospitals, malls, airports, and beyond.
-    </p>
-
-    <div class="hero-ctas">
-      <a href="#demo"    class="btn btn-primary"><i class="fas fa-play-circle"></i> Launch Demo</a>
-      <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Request Pilot</a>
-    </div>
-
-    <div class="hero-trust">
-      <span class="hero-trust-label">Built for</span>
-      <div class="hero-trust-pills">
-        <span class="trust-pill">Hospitals</span>
-        <span class="trust-pill">Malls</span>
-        <span class="trust-pill">Airports</span>
-        <span class="trust-pill">Universities</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right: Animated Floor Map -->
-  <div class="hero-visual">
-    <div class="hero-map-wrap">
-
-      <!-- Floating: Route Card -->
-      <div class="hero-float-card hero-float-card--route">
-        <div class="float-card-row">
-          <span class="fc-dot fc-dot--green"></span>
-          <span class="fc-label">Route found · ICU</span>
+      <!-- LEFT: Copy -->
+      <div class="hero-copy hero-light-copy">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          AI Indoor Infrastructure Platform
         </div>
-        <div class="fc-sub">3 min · 47 meters</div>
-      </div>
-
-      <!-- SVG Floor Map -->
-      <svg id="heroMap" viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-map-svg" aria-hidden="true">
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2.5" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%"   stop-color="#00d4ff"/>
-            <stop offset="100%" stop-color="#0fb8a0"/>
-          </linearGradient>
-          <linearGradient id="routeGradV" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stop-color="#00d4ff"/>
-            <stop offset="100%" stop-color="#0fb8a0"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Building shell -->
-        <rect x="8" y="8" width="404" height="204" rx="10" fill="rgba(13,27,42,0.7)" stroke="rgba(0,212,255,0.12)" stroke-width="1"/>
-
-        <!-- Floor label -->
-        <text x="20" y="24" fill="rgba(0,212,255,0.45)" font-size="7.5" font-family="Poppins,sans-serif" font-weight="600" letter-spacing="1.2">FLOOR 2 · HOSPITAL WING</text>
-
-        <!-- TOP ROW ROOMS -->
-        <rect x="18" y="30" width="78" height="52" rx="5" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.18)" stroke-width="0.75"/>
-        <text x="57" y="60" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle">Ward A</text>
-
-        <rect x="106" y="30" width="78" height="52" rx="5" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.18)" stroke-width="0.75"/>
-        <text x="145" y="60" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle">Ward B</text>
-
-        <!-- ICU - Destination -->
-        <rect x="194" y="30" width="88" height="52" rx="5" fill="rgba(15,184,160,0.1)" stroke="rgba(15,184,160,0.5)" stroke-width="1.5"/>
-        <text x="238" y="53" fill="rgba(15,184,160,0.95)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle" font-weight="600">ICU</text>
-        <text x="238" y="65" fill="rgba(15,184,160,0.55)" font-size="6.5" font-family="Poppins,sans-serif" text-anchor="middle">Destination</text>
-
-        <rect x="292" y="30" width="110" height="52" rx="5" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.18)" stroke-width="0.75"/>
-        <text x="347" y="60" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle">Laboratory</text>
-
-        <!-- CORRIDOR -->
-        <rect x="18" y="87" width="384" height="18" rx="3" fill="rgba(0,212,255,0.025)" stroke="rgba(0,212,255,0.07)" stroke-width="0.5"/>
-        <text x="210" y="99" fill="rgba(0,212,255,0.18)" font-size="5.5" font-family="Poppins,sans-serif" text-anchor="middle" letter-spacing="2">CORRIDOR</text>
-
-        <!-- BOTTOM ROW ROOMS -->
-        <rect x="18" y="110" width="78" height="52" rx="5" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.18)" stroke-width="0.75"/>
-        <text x="57" y="140" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle">Pharmacy</text>
-
-        <rect x="106" y="110" width="78" height="52" rx="5" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.18)" stroke-width="0.75"/>
-        <text x="145" y="140" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle">Cafeteria</text>
-
-        <rect x="194" y="110" width="88" height="52" rx="5" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.18)" stroke-width="0.75"/>
-        <text x="238" y="140" fill="rgba(255,255,255,0.3)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle">Reception</text>
-
-        <!-- Entrance - You are here -->
-        <rect x="292" y="110" width="110" height="52" rx="5" fill="rgba(0,212,255,0.09)" stroke="rgba(0,212,255,0.45)" stroke-width="1.5"/>
-        <text x="347" y="133" fill="rgba(0,212,255,0.85)" font-size="7.5" font-family="Poppins,sans-serif" text-anchor="middle" font-weight="600">Entrance</text>
-        <text x="347" y="145" fill="rgba(0,212,255,0.45)" font-size="6.5" font-family="Poppins,sans-serif" text-anchor="middle">You are here</text>
-
-        <!-- Asset pins -->
-        <circle cx="145" cy="56" r="4" fill="rgba(243,156,18,0.8)" filter="url(#glow)"/>
-        <circle cx="57" cy="136" r="4" fill="rgba(46,204,113,0.8)" filter="url(#glow)"/>
-
-        <!-- ROUTE PATH (CSS animated stroke-dashoffset) -->
-        <path id="hero-route" class="hero-route-path"
-          d="M 347,136 L 347,96 L 238,96 L 238,82"
-          stroke="url(#routeGrad)" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round"/>
-
-        <!-- Destination marker -->
-        <circle cx="238" cy="56" r="7" fill="#0fb8a0" filter="url(#glow)"/>
-        <circle cx="238" cy="56" r="3.5" fill="white"/>
-
-        <!-- You-are-here marker -->
-        <circle cx="347" cy="136" r="16" fill="rgba(0,212,255,0.08)" class="pulse-outer"/>
-        <circle cx="347" cy="136" r="10" fill="rgba(0,212,255,0.18)" class="pulse-inner"/>
-        <circle cx="347" cy="136" r="5.5" fill="#00d4ff" filter="url(#glow)"/>
-        <circle cx="347" cy="136" r="2.5" fill="white"/>
-
-        <!-- Moving marker (JS animates) -->
-        <circle id="hero-moving-marker" cx="347" cy="136" r="5" fill="white" opacity="0" filter="url(#glow)"/>
-      </svg>
-
-      <!-- Floating: Asset Card -->
-      <div class="hero-float-card hero-float-card--asset">
-        <div class="float-card-row">
-          <span class="fc-dot fc-dot--orange"></span>
-          <span class="fc-label">Wheelchair #12</span>
+        <h1 class="hero-title">Navigate Buildings<br><span>Intelligently</span></h1>
+        <p class="hero-sub">AI-powered indoor navigation, real-time asset tracking, and smart facility operations — built for hospitals, malls, airports, and beyond.</p>
+        <div class="hero-ctas">
+          <a href="industries.html" class="btn btn-primary"><i class="fas fa-play-circle"></i> Live Demo</a>
+          <a href="contact.html"    class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Request Pilot</a>
         </div>
-        <div class="fc-sub">Ward B · Floor 2</div>
-        <div class="fc-battery">
-          <div class="fc-battery-bar">
-            <div class="fc-battery-fill" id="heroBattFill" style="width:0%"></div>
+        <div class="hero-trust">
+          <span class="hero-trust-label">Built for</span>
+          <div class="hero-trust-pills">
+            <span class="trust-pill"><i class="fas fa-hospital-alt" style="font-size:0.7rem"></i> Hospitals</span>
+            <span class="trust-pill"><i class="fas fa-shopping-cart" style="font-size:0.7rem"></i> Malls</span>
+            <span class="trust-pill"><i class="fas fa-plane-departure" style="font-size:0.7rem"></i> Airports</span>
+            <span class="trust-pill"><i class="fas fa-university" style="font-size:0.7rem"></i> Universities</span>
           </div>
-          <span class="fc-battery-pct">72%</span>
         </div>
       </div>
 
+      <!-- RIGHT: 3D Product Stage -->
+      <div class="h3d-stage" aria-hidden="true">
+
+        <!-- Ambient glow blobs -->
+        <div class="h3d-blob h3d-blob--blue"></div>
+        <div class="h3d-blob h3d-blob--purple"></div>
+        <div class="h3d-blob h3d-blob--cyan"></div>
+
+        <!-- Expanding signal rings centred on device -->
+        <div class="h3d-rings">
+          <div class="h3d-ring"></div>
+          <div class="h3d-ring"></div>
+          <div class="h3d-ring"></div>
+        </div>
+
+        <!-- Floating device -->
+        <div class="h3d-device-wrap">
+          <div class="h3d-device">
+            <!-- LED status row -->
+            <div class="h3d-leds">
+              <div class="h3d-led h3d-led--b"></div>
+              <div class="h3d-led h3d-led--g"></div>
+              <div class="h3d-led h3d-led--o"></div>
+              <div class="h3d-led h3d-led--d"></div>
+            </div>
+            <!-- Central icon -->
+            <div class="h3d-device-icon">
+              <i class="fas fa-broadcast-tower"></i>
+            </div>
+            <!-- Brand label -->
+            <div class="h3d-device-brand">InovaHub</div>
+            <!-- Status text -->
+            <div class="h3d-device-status">
+              <div class="h3d-status-dot"></div>
+              Transmitting · BLE 5.0
+            </div>
+            <!-- Signal progress bar -->
+            <div class="h3d-conn-bar">
+              <div class="h3d-conn-fill"></div>
+            </div>
+          </div>
+          <!-- Glow pool beneath device -->
+          <div class="h3d-device-glow"></div>
+        </div>
+
+        <!-- Perspective grid platform -->
+        <div class="h3d-platform">
+          <div class="h3d-grid-wrap">
+            <div class="h3d-grid-tiles"></div>
+            <div class="h3d-halo"></div>
+          </div>
+          <div class="h3d-grid-glow"></div>
+        </div>
+
+        <!-- Floating metric chips -->
+        <div class="h3d-chips">
+          <div class="h3d-chip h3d-chip--1">
+            <i class="fas fa-crosshairs"></i> ±0.5m Precision
+          </div>
+          <div class="h3d-chip h3d-chip--2">
+            <i class="fas fa-check-circle"></i> 98% Accuracy
+          </div>
+          <div class="h3d-chip h3d-chip--3">
+            <i class="fas fa-bolt"></i> BLE 5.0 · 30m
+          </div>
+          <div class="h3d-chip h3d-chip--4">
+            <i class="fas fa-shield-alt"></i> IP65 Rated
+          </div>
+        </div>
+
+      </div><!-- /.h3d-stage -->
     </div>
   </div>
-
-</div>
 </section>
 
 
-<!-- ============================================================
-     STATS BAR
-     ============================================================ -->
+
+<!-- STATS BAR -->
 <div class="stats-bar">
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item fade-up">
-        <div class="stat-number" data-target="50">0</div>
+        <div class="stat-number" data-target="50" data-suffix="+">0</div>
         <div class="stat-label">Buildings Mapped</div>
       </div>
       <div class="stat-item fade-up">
-        <div class="stat-number" data-target="98">0</div>
-        <div class="stat-label">% Navigation Accuracy</div>
+        <div class="stat-number" data-target="98" data-suffix="%">0</div>
+        <div class="stat-label">Navigation Accuracy</div>
       </div>
       <div class="stat-item fade-up">
         <div class="stat-number" data-target="5">0</div>
         <div class="stat-label">Industries Served</div>
       </div>
       <div class="stat-item fade-up">
-        <div class="stat-number" data-target="24">0</div>
-        <div class="stat-label">7 Live Monitoring</div>
+        <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+        <div class="stat-label">Live Monitoring</div>
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- ============================================================
-     PRODUCT ECOSYSTEM
-     ============================================================ -->
+<!-- PRODUCTS OVERVIEW -->
 <section id="products" class="section">
   <div class="container">
     <div class="section-header">
@@ -288,21 +194,20 @@
     </div>
 
     <div class="products-grid">
-
       <div class="card product-card fade-up">
         <div class="product-icon-wrap"><i class="fas fa-map-marked-alt"></i></div>
         <span class="product-tag">Navigation</span>
         <h3>InovaMap</h3>
         <p>AI-powered indoor navigation that guides visitors step-by-step to any room, ward, or facility within large buildings.</p>
-        <a href="#demo" class="product-link">Try Demo <i class="fas fa-arrow-right"></i></a>
+        <a href="industries.html" class="product-link">Try Live Demo <i class="fas fa-arrow-right"></i></a>
       </div>
 
       <div class="card product-card fade-up">
         <div class="product-icon-wrap"><i class="fas fa-tag"></i></div>
         <span class="product-tag">Tracking</span>
         <h3>InovaNode</h3>
-        <p>Wireless asset tracking tags that report real-time location, battery status, and tamper alerts for critical equipment.</p>
-        <a href="#asset-tracking" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        <p>Wireless BLE asset tracking tags that report real-time location, battery status, and tamper alerts for critical equipment.</p>
+        <a href="products.html#inovanode" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
       </div>
 
       <div class="card product-card fade-up">
@@ -310,7 +215,7 @@
         <span class="product-tag">Gateway</span>
         <h3>InovaHub</h3>
         <p>Cloud-connected indoor gateway that bridges InovaNode tags with the Admin Dashboard, ensuring seamless data flow across all floors.</p>
-        <a href="#solutions" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        <a href="products.html#inovahub" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
       </div>
 
       <div class="card product-card fade-up">
@@ -318,74 +223,19 @@
         <span class="product-tag">Intelligence</span>
         <h3>Admin Dashboard</h3>
         <p>Facility intelligence layer with live visitor flow analytics, asset maps, security alerts, and operational insights.</p>
-        <a href="#solutions" class="product-link">Explore <i class="fas fa-arrow-right"></i></a>
+        <a href="products.html#dashboard" class="product-link">Explore <i class="fas fa-arrow-right"></i></a>
       </div>
+    </div>
 
+    <div style="text-align:center;margin-top:44px;">
+      <a href="products.html" class="btn btn-outline"><i class="fas fa-layer-group"></i> See All Products in Detail</a>
     </div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     HOW IT WORKS
-     ============================================================ -->
-<section id="how-it-works" class="section section--subtle">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-badge">How It Works</div>
-      <h2 class="section-title">From Building to Intelligence</h2>
-      <p class="section-sub">Five steps to transform any large facility into a smart, navigable environment.</p>
-    </div>
-
-    <div class="hiw-pipeline">
-
-      <div class="hiw-step fade-up">
-        <div class="hiw-num"><i class="fas fa-building"></i></div>
-        <h4>Building Scan</h4>
-        <p>Your facility floor plans are uploaded and validated by our mapping team.</p>
-      </div>
-
-      <div class="hiw-connector"></div>
-
-      <div class="hiw-step fade-up">
-        <div class="hiw-num"><i class="fas fa-drafting-compass"></i></div>
-        <h4>Map Digitization</h4>
-        <p>Floor plans are converted into intelligent, routable indoor maps.</p>
-      </div>
-
-      <div class="hiw-connector"></div>
-
-      <div class="hiw-step fade-up">
-        <div class="hiw-num"><i class="fas fa-brain"></i></div>
-        <h4>Indoor Intelligence</h4>
-        <p>AI processes spatial data and generates optimized navigation graphs.</p>
-      </div>
-
-      <div class="hiw-connector"></div>
-
-      <div class="hiw-step fade-up">
-        <div class="hiw-num"><i class="fas fa-tag"></i></div>
-        <h4>Asset Tracking</h4>
-        <p>InovaNode tags are deployed to track critical assets in real time.</p>
-      </div>
-
-      <div class="hiw-connector"></div>
-
-      <div class="hiw-step fade-up">
-        <div class="hiw-num"><i class="fas fa-chart-bar"></i></div>
-        <h4>Live Analytics</h4>
-        <p>Data flows to your Admin Dashboard for operational intelligence.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     SOLUTIONS
-     ============================================================ -->
-<section id="solutions" class="section section--light">
+<!-- SOLUTIONS -->
+<section id="solutions" class="section section--subtle">
   <div class="container">
     <div class="section-header">
       <div class="section-badge">Solutions</div>
@@ -394,187 +244,59 @@
     </div>
 
     <div class="solutions-grid">
-
       <div class="solution-card fade-up">
         <div class="sol-icon"><i class="fas fa-route"></i></div>
         <h4>Indoor Navigation</h4>
         <p>Step-by-step routing to any room, ward, or service point. Multi-floor, multi-language support.</p>
       </div>
-
       <div class="solution-card fade-up">
         <div class="sol-icon"><i class="fas fa-map-pin"></i></div>
         <h4>Asset Tracking</h4>
         <p>Real-time location of wheelchairs, equipment, and tagged assets across all floors and zones.</p>
       </div>
-
       <div class="solution-card fade-up">
         <div class="sol-icon"><i class="fas fa-chart-area"></i></div>
         <h4>Facility Analytics</h4>
         <p>Crowd density maps, visitor flow heatmaps, and dwell-time analysis with full privacy safeguards.</p>
       </div>
-
       <div class="solution-card fade-up">
         <div class="sol-icon"><i class="fas fa-shield-alt"></i></div>
         <h4>Security Integration</h4>
         <p>Link cameras, access sensors, and emergency systems through a unified smart security layer.</p>
       </div>
-
       <div class="solution-card fade-up">
         <div class="sol-icon"><i class="fas fa-star"></i></div>
         <h4>Visitor Experience</h4>
         <p>Personalised wayfinding, amenity discovery, and digital concierge services for every visitor.</p>
       </div>
-
       <div class="solution-card fade-up">
         <div class="sol-icon"><i class="fas fa-cogs"></i></div>
         <h4>Operational Intelligence</h4>
         <p>Maintenance scheduling, resource allocation, and real-time operational alerts in one dashboard.</p>
       </div>
+    </div>
 
+    <div class="section-more-row">
+      <p>Looking for a solution specific to your facility type?</p>
+      <a href="contact.html" class="btn btn-outline">
+        <i class="fas fa-plus-circle"></i> Request a Custom Solution
+      </a>
     </div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     ASSET TRACKING
-     ============================================================ -->
-<section id="asset-tracking" class="section">
-  <div class="container">
-    <div class="asset-layout">
-
-      <!-- Left: Features -->
-      <div>
-        <div class="section-badge">InovaNode</div>
-        <h2 class="section-title" style="margin-bottom:var(--sp-2)">Real-Time Asset Tracking</h2>
-        <p class="section-sub" style="margin-bottom:var(--sp-5)">
-          Attach InovaNode wireless tags to any asset. Know where everything is, instantly.
-        </p>
-
-        <div class="asset-features">
-          <div class="asset-feature fade-up">
-            <div class="asset-feat-icon"><i class="fas fa-map-pin"></i></div>
-            <div class="asset-feat-text">
-              <h5>Real-time Location</h5>
-              <p>Track any tagged asset floor-by-floor with metre-level accuracy.</p>
-            </div>
-          </div>
-          <div class="asset-feature fade-up">
-            <div class="asset-feat-icon"><i class="fas fa-battery-three-quarters"></i></div>
-            <div class="asset-feat-text">
-              <h5>Battery Monitoring</h5>
-              <p>Automatic low-battery alerts before tags go offline.</p>
-            </div>
-          </div>
-          <div class="asset-feature fade-up">
-            <div class="asset-feat-icon"><i class="fas fa-exclamation-triangle"></i></div>
-            <div class="asset-feat-text">
-              <h5>Tamper Detection</h5>
-              <p>Instant alert when a tagged asset is moved without authorisation.</p>
-            </div>
-          </div>
-          <div class="asset-feature fade-up">
-            <div class="asset-feat-icon"><i class="fas fa-route"></i></div>
-            <div class="asset-feat-text">
-              <h5>Route to Asset</h5>
-              <p>Navigate staff directly to any asset location with one tap.</p>
-            </div>
-          </div>
-          <div class="asset-feature fade-up">
-            <div class="asset-feat-icon"><i class="fas fa-layer-group"></i></div>
-            <div class="asset-feat-text">
-              <h5>Multi-floor Support</h5>
-              <p>Track assets seamlessly across every floor in the building.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Dashboard mockup -->
-      <div class="fade-up">
-        <div class="asset-dashboard">
-          <div class="ad-header">
-            <h4><i class="fas fa-tag" style="color:var(--c-cyan);margin-right:6px"></i> Asset Tracker</h4>
-            <div class="ad-live">
-              <div class="ad-live-dot"></div>
-              Live
-            </div>
-          </div>
-
-          <div class="asset-row">
-            <div class="ar-icon"><i class="fas fa-wheelchair"></i></div>
-            <div class="ar-info">
-              <div class="ar-name">Wheelchair #12</div>
-              <div class="ar-loc"><i class="fas fa-map-marker-alt" style="font-size:0.65rem;color:var(--c-cyan);margin-right:3px"></i>Ward B · Floor 2</div>
-            </div>
-            <div class="ar-battery">
-              <div class="ar-batt-bar"><div class="ar-batt-fill ar-batt-fill--hi" style="width:72%"></div></div>
-              <div class="ar-batt-pct">72%</div>
-            </div>
-            <div class="ar-status ar-status--on"></div>
-          </div>
-
-          <div class="asset-row">
-            <div class="ar-icon"><i class="fas fa-stethoscope"></i></div>
-            <div class="ar-info">
-              <div class="ar-name">ECG Monitor #03</div>
-              <div class="ar-loc"><i class="fas fa-map-marker-alt" style="font-size:0.65rem;color:var(--c-cyan);margin-right:3px"></i>ICU · Floor 2</div>
-            </div>
-            <div class="ar-battery">
-              <div class="ar-batt-bar"><div class="ar-batt-fill ar-batt-fill--mid" style="width:41%"></div></div>
-              <div class="ar-batt-pct">41%</div>
-            </div>
-            <div class="ar-status ar-status--on"></div>
-          </div>
-
-          <div class="asset-row">
-            <div class="ar-icon"><i class="fas fa-procedures"></i></div>
-            <div class="ar-info">
-              <div class="ar-name">Gurney #07</div>
-              <div class="ar-loc"><i class="fas fa-map-marker-alt" style="font-size:0.65rem;color:var(--c-cyan);margin-right:3px"></i>Reception · Floor 1</div>
-            </div>
-            <div class="ar-battery">
-              <div class="ar-batt-bar"><div class="ar-batt-fill ar-batt-fill--low" style="width:12%"></div></div>
-              <div class="ar-batt-pct" style="color:#e74c3c">12%</div>
-            </div>
-            <div class="ar-status ar-status--on"></div>
-          </div>
-
-          <div class="asset-row">
-            <div class="ar-icon"><i class="fas fa-pump-medical"></i></div>
-            <div class="ar-info">
-              <div class="ar-name">IV Pump #21</div>
-              <div class="ar-loc"><i class="fas fa-map-marker-alt" style="font-size:0.65rem;color:rgba(255,255,255,0.2);margin-right:3px"></i>Last seen: Ward A</div>
-            </div>
-            <div class="ar-battery">
-              <div class="ar-batt-bar"><div class="ar-batt-fill ar-batt-fill--hi" style="width:88%"></div></div>
-              <div class="ar-batt-pct">88%</div>
-            </div>
-            <div class="ar-status ar-status--off"></div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     INDUSTRIES
-     ============================================================ -->
+<!-- INDUSTRIES TEASER -->
 <section id="industries" class="section">
   <div class="container">
     <div class="section-header">
       <div class="section-badge">Industries</div>
       <h2 class="section-title">Designed for Every Large Building</h2>
-      <p class="section-sub">Hover or tap a card to see the challenge and how InovaRoute solves it.</p>
+      <p class="section-sub">Each industry gets a tailored solution — from hospital wards to airport terminals. Hover or tap to explore.</p>
     </div>
 
     <div class="industries-grid">
-
-      <div class="industry-card fade-up" tabindex="0" aria-label="Hospitals — click to see solution">
+      <div class="industry-card fade-up" tabindex="0" aria-label="Hospitals">
         <div class="industry-card-inner">
           <div class="industry-front">
             <div class="industry-icon-wrap"><i class="fas fa-hospital"></i></div>
@@ -673,168 +395,17 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <div style="text-align:center;margin-top:44px;">
+      <a href="industries.html" class="btn btn-outline"><i class="fas fa-play-circle"></i> Explore All Industries + Live Demo</a>
     </div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     INTERACTIVE DEMO
-     ============================================================ -->
-<section id="demo" class="section section--subtle">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-badge">Interactive Demo</div>
-      <h2 class="section-title">Navigate Any Building</h2>
-      <p class="section-sub">Experience InovaMap's intelligent indoor routing. Select a floor and destination, then find your route.</p>
-    </div>
-
-    <div class="demo-wrap">
-
-      <!-- Controls -->
-      <div class="demo-controls">
-
-        <div>
-          <label>Select Floor</label>
-          <div class="floor-tabs" id="floorTabs">
-            <button class="floor-tab active" data-floor="1">Floor 1</button>
-            <button class="floor-tab" data-floor="2">Floor 2</button>
-          </div>
-        </div>
-
-        <div>
-          <label>You are at</label>
-          <div class="demo-origin-display">
-            <i class="fas fa-circle" style="font-size:0.6rem;color:var(--c-cyan)"></i>
-            <span id="demoOriginLabel">Main Entrance</span>
-          </div>
-        </div>
-
-        <div>
-          <label for="demoDest">Where to?</label>
-          <select class="demo-select" id="demoDest">
-            <option value="">Select destination…</option>
-          </select>
-        </div>
-
-        <button class="demo-find-btn" id="demoFindBtn" disabled>
-          <i class="fas fa-route"></i> Find Route
-        </button>
-
-        <div class="demo-result" id="demoResult">
-          <div class="demo-result-row"><i class="fas fa-clock"></i> Walk time: <strong id="demoEta">—</strong></div>
-          <div class="demo-result-row"><i class="fas fa-ruler-horizontal"></i> Distance: <strong id="demoDist">—</strong></div>
-          <div class="demo-result-row"><i class="fas fa-check-circle" style="color:#2ecc71"></i> Route found</div>
-        </div>
-
-      </div>
-
-      <!-- Map -->
-      <div class="demo-map-wrap">
-        <svg id="demo-svg" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive floor map">
-          <defs>
-            <linearGradient id="demoRouteGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%"   stop-color="#00d4ff"/>
-              <stop offset="100%" stop-color="#0fb8a0"/>
-            </linearGradient>
-            <filter id="demoGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-        </svg>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     MISSION + VISION
-     ============================================================ -->
-<section id="mission-vision" class="section section--light">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-badge">Our Purpose</div>
-      <h2 class="section-title">Mission &amp; Vision</h2>
-    </div>
-    <div class="mv-grid">
-      <div class="mv-card mv-mission fade-up">
-        <div class="mv-icon-wrap"><i class="fas fa-rocket"></i></div>
-        <h3>Our Mission</h3>
-        <p>To revolutionize how people move and interact within large facilities by delivering simple, secure, and intelligent navigation solutions.</p>
-      </div>
-      <div class="mv-card mv-vision fade-up">
-        <div class="mv-icon-wrap"><i class="fas fa-globe-africa"></i></div>
-        <h3>Our Vision</h3>
-        <p>To become Africa's leading provider of indoor navigation and smart facility management solutions, making spaces more connected, accessible, and user-friendly.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     ABOUT US
-     ============================================================ -->
-<section id="about-us" class="section">
-  <div class="container">
-    <div class="about-layout">
-
-      <div class="about-image fade-up">
-        <img src="about-us.png" alt="InovaRoute team at work" loading="lazy"
-             onerror="this.style.display='none'">
-        <!-- Fallback if no image -->
-        <div style="background:linear-gradient(135deg,#eaf4fd,#f0f7ff);border-radius:var(--r-xl);padding:var(--sp-8) var(--sp-6);text-align:center;border:1px solid var(--c-border)">
-          <i class="fas fa-map-marked-alt" style="font-size:4rem;color:var(--c-blue);opacity:0.3;display:block;margin-bottom:var(--sp-3)"></i>
-          <div style="font-size:0.85rem;color:var(--c-text-muted)">Mapping Africa's buildings intelligently</div>
-        </div>
-      </div>
-
-      <div class="about-content fade-up">
-        <div class="section-badge">About Us</div>
-        <h2>Built in Nairobi. Scaling Across Africa.</h2>
-        <p>InovaRoute is a technology-driven company focused on developing AI-powered indoor navigation and smart facility solutions. Our mission is to make malls, airports, hospitals, and other large complexes easier, safer, and smarter for visitors, tenants, and management.</p>
-        <p>Founded by Victor Kyeva, we are building the infrastructure layer that powers intelligent buildings across the continent — starting with the facilities where navigation matters most.</p>
-
-        <div class="timeline">
-          <h3><i class="fas fa-history" style="color:var(--c-blue)"></i> Our Journey</h3>
-          <div class="tl-list">
-            <div class="tl-item">
-              <div class="tl-year">2022</div>
-              <div class="tl-event">InovaRoute founded in Nairobi by Victor Kyeva</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2023</div>
-              <div class="tl-event">InovaMap v1 prototype developed and tested internally</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2024</div>
-              <div class="tl-event">First pilot deployment at a major Nairobi hospital</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2025</div>
-              <div class="tl-event">InovaNode &amp; InovaHub product lines launched</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-year">2026</div>
-              <div class="tl-event">Expanding to malls, airports &amp; universities across East Africa</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     TESTIMONIALS
-     ============================================================ -->
-<section id="testimonials" class="section section--light">
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section section--subtle">
   <div class="container">
     <div class="section-header">
       <div class="section-badge">Pilot Feedback</div>
@@ -843,12 +414,11 @@
     </div>
 
     <div class="testimonials-grid">
-
       <div class="testi-card fade-up">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-quote">"Since deploying InovaMap, patient navigation complaints dropped significantly. Our staff now spend less time giving directions and more time on care. The impact was immediate."</p>
         <div class="testi-person">
-          <div class="testi-avatar">DM</div>
+          <div class="testi-avatar">SM</div>
           <div>
             <div class="testi-name">Dr. Sarah Mwangi</div>
             <div class="testi-role">Facility Manager, Nairobi Hospital</div>
@@ -882,185 +452,75 @@
         </div>
         <div class="testi-logo"><span>Pilot Partner · Aviation</span></div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
-<section id="contact" class="section">
+<!-- CTA BANNER -->
+<section class="cta-banner">
   <div class="container">
-    <div class="section-header">
-      <div class="section-badge">Get In Touch</div>
-      <h2 class="section-title">Start Your Pilot Today</h2>
-      <p class="section-sub">Ready to transform your facility? Tell us about your building and we'll put together a custom pilot plan.</p>
-    </div>
-
-    <div class="contact-layout">
-
-      <!-- Contact info -->
-      <div class="contact-info fade-up">
-        <h3>Contact InovaRoute</h3>
-
-        <div class="contact-detail">
-          <div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="cd-text">
-            <strong>Location</strong>
-            <span>84 Riverside Dr, Nairobi, Kenya</span>
-          </div>
-        </div>
-
-        <div class="contact-detail">
-          <div class="cd-icon"><i class="fas fa-envelope"></i></div>
-          <div class="cd-text">
-            <strong>Email</strong>
-            <a href="mailto:info@inovaroute.co.ke">info@inovaroute.co.ke</a>
-          </div>
-        </div>
-
-        <div class="contact-detail">
-          <div class="cd-icon"><i class="fab fa-whatsapp"></i></div>
-          <div class="cd-text">
-            <strong>WhatsApp</strong>
-            <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank">Chat with us</a>
-          </div>
-        </div>
-
-        <div class="contact-social">
-          <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" class="soc-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.instagram.com/inovaroutetech?igsh=aXVvbjA5ZzNsaHh5" target="_blank" class="soc-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/share/1BY43MmHNZ/" target="_blank" class="soc-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        </div>
-      </div>
-
-      <!-- Contact form -->
-      <div class="contact-form-wrap fade-up">
-        <h3>Send Us a Message</h3>
-
-        <div id="contactFormBody">
-          <form id="contactForm" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="cf-name">Full Name *</label>
-                <input type="text" id="cf-name" name="name" placeholder="Your name" required>
-                <div class="field-error" id="err-name">Please enter your name.</div>
-              </div>
-              <div class="form-field">
-                <label for="cf-company">Company / Organisation *</label>
-                <input type="text" id="cf-company" name="company" placeholder="Your organisation" required>
-                <div class="field-error" id="err-company">Please enter your organisation.</div>
-              </div>
-            </div>
-
-            <div class="form-field">
-              <label for="cf-email">Email Address *</label>
-              <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
-              <div class="field-error" id="err-email">Please enter a valid email address.</div>
-            </div>
-
-            <div class="form-field">
-              <label for="cf-industry">Industry *</label>
-              <select id="cf-industry" name="industry" required>
-                <option value="">Select your industry…</option>
-                <option value="hospital">Hospital / Healthcare</option>
-                <option value="mall">Shopping Mall / Retail</option>
-                <option value="airport">Airport / Transport</option>
-                <option value="university">University / Education</option>
-                <option value="office">Office / Commercial</option>
-                <option value="other">Other</option>
-              </select>
-              <div class="field-error" id="err-industry">Please select your industry.</div>
-            </div>
-
-            <div class="form-field">
-              <label for="cf-message">Message *</label>
-              <textarea id="cf-message" name="message" placeholder="Tell us about your facility and what you're looking to achieve…" required></textarea>
-              <div class="field-error" id="err-message">Please enter your message.</div>
-            </div>
-
-            <button type="submit" class="btn-submit">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-          </form>
-        </div>
-
-        <div class="form-success" id="formSuccess">
-          <div class="form-success-icon"><i class="fas fa-check"></i></div>
-          <h4>Message Sent!</h4>
-          <p>Thank you for reaching out. Our team will get back to you within 24 hours.</p>
-        </div>
-      </div>
-
+    <h2>Ready to Transform Your Facility?</h2>
+    <p>Join hospitals, malls, and airports across East Africa already using InovaRoute to navigate smarter.</p>
+    <div class="cta-banner-actions">
+      <a href="contact.html"    class="btn btn-primary"><i class="fas fa-paper-plane"></i> Start Your Pilot</a>
+      <a href="industries.html" class="btn btn-secondary"><i class="fas fa-play-circle"></i> See Live Demo</a>
     </div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
-
       <div class="footer-brand">
         <div class="footer-brand-logo">
-          <div class="nav-logo" style="width:20px;height:20px;gap:2px">
-            <span></span><span></span><span></span><span></span>
-          </div>
+          <div class="nav-logo" style="width:20px;height:20px;gap:2px"><span></span><span></span><span></span><span></span></div>
           <span class="f-name">InovaRoute</span>
         </div>
         <p class="footer-tagline">AI-Powered Indoor Navigation &amp; Smart Facility Platform.</p>
         <div class="footer-ctas">
-          <a href="#demo"    class="btn btn-primary btn-sm">Launch InovaMap</a>
-          <a href="#contact" class="btn btn-secondary btn-sm">Request Pilot</a>
+          <a href="industries.html" class="btn btn-primary btn-sm">Live Demo</a>
+          <a href="contact.html"    class="btn btn-secondary btn-sm">Request Pilot</a>
         </div>
       </div>
-
       <div class="footer-col">
         <h4>Products</h4>
         <ul>
-          <li><a href="#products">InovaMap</a></li>
-          <li><a href="#products">InovaNode</a></li>
-          <li><a href="#products">InovaHub</a></li>
-          <li><a href="#products">Admin Dashboard</a></li>
+          <li><a href="products.html#inovamap">InovaMap</a></li>
+          <li><a href="products.html#inovanode">InovaNode</a></li>
+          <li><a href="products.html#inovahub">InovaHub</a></li>
+          <li><a href="products.html#dashboard">Admin Dashboard</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Solutions</h4>
         <ul>
-          <li><a href="#solutions">Indoor Navigation</a></li>
-          <li><a href="#solutions">Asset Tracking</a></li>
-          <li><a href="#solutions">Facility Analytics</a></li>
-          <li><a href="#solutions">Security Integration</a></li>
+          <li><a href="products.html">Indoor Navigation</a></li>
+          <li><a href="products.html">Asset Tracking</a></li>
+          <li><a href="products.html">Facility Analytics</a></li>
+          <li><a href="contact.html">Custom Solutions</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#about-us">About Us</a></li>
-          <li><a href="#mission-vision">Mission &amp; Vision</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+          <li><a href="industries.html">Industries</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="#contact">Get in Touch</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
           <li><a href="mailto:info@inovaroute.co.ke">info@inovaroute.co.ke</a></li>
           <li>84 Riverside Dr, Nairobi</li>
         </ul>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 InovaRoute Tech. All rights reserved.</p>
       <div class="footer-social">
@@ -1077,9 +537,7 @@
 </footer>
 
 
-<!-- ============================================================
-     ASSIST WIDGET
-     ============================================================ -->
+<!-- ASSIST WIDGET -->
 <div class="assist" id="assist">
   <button class="assist-bubble" id="assist-open" aria-label="Open assistant">
     <i class="fas fa-comment-dots"></i>
@@ -1099,8 +557,6 @@
   </div>
 </div>
 
-
-<!-- Scripts -->
 <script src="scripts/main.js" defer></script>
 </body>
 </html>
