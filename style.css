@@ -384,18 +384,67 @@ p {
 }
 
 /* --- Mission & Vision Cards --- */
-.card-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 15px;
+.mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
-.card h3 {
+.mv-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 40px 35px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.13);
+}
+
+.mv-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    margin: 0 auto 22px;
+    font-size: 1.8em;
+}
+
+.mv-mission .mv-icon-wrap {
+    background-color: #eaf4fd;
     color: #3498db;
+}
+
+.mv-vision .mv-icon-wrap {
+    background-color: #eafaf1;
+    color: #2ecc71;
+}
+
+.mv-card h3 {
+    color: #2c3e50;
+    font-size: 1.4em;
+    margin-bottom: 14px;
+}
+
+.mv-mission h3 { color: #3498db; }
+.mv-vision h3  { color: #27ae60; }
+
+.mv-card p {
+    color: #555;
+    font-size: 0.97em;
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .mv-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- Testimonial Card Styles --- */
