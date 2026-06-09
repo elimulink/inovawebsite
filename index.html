@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InovaRoute - AI-Powered Indoor Navigation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- 1. Add Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJzL0SQxSjFw9iYkG2yXFjT3YF+N9T7GgYJ+r8t7r4U+f4r0FhF1R7z0T0K0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="navbar-brand">
+                <span class="navbar-logo">
+                    <span></span><span></span>
+                    <span></span><span></span>
+                </span>
+                <span class="navbar-name">InovaRoute</span>
+            </a>
+            <ul class="navbar-links">
+                <li><a href="#about-us">About</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="navbar-cta">Launch InovaMap</a>
+            <button class="navbar-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Floating Assist Widget -->
+    <div class="assist" id="assist">
+        <button class="assist-bubble" id="assist-open" aria-label="Open assistant">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="assist-panel" id="assist-panel">
+            <div class="assist-header">
+                <h4>Can we help you?</h4>
+                <button class="assist-close" id="assist-close" aria-label="Close">&times;</button>
+            </div>
+            <p class="assist-text">InovaRoute Assistant is available 24/7.</p>
+            <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" class="assist-btn assist-btn-primary">Chat now</a>
+            <button class="assist-btn assist-btn-secondary" id="assist-no">No thanks</button>
+        </div>
+    </div>
+
+    <header class="hero">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="mall-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-title">InovaRoute</h1>
+            <p class="hero-subtitle">AI-Powered Indoor Navigation & Smart Facility Solutions</p>
+            <a href="#" class="btn-primary">Launch InovaMap</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about-us" class="section fade-in">
+            <div class="container about-container">
+                <div class="about-image">
+                    <img src="about-us.png" alt="About Us illustration" class="responsive-image">
+                </div>
+                <div class="about-content">
+                    <h2>About Us</h2>
+                    <p class="section-text">InovaRoute is a technology-driven company focused on developing AI-powered indoor navigation and smart facility solutions. Our mission is to make malls, airports, hospitals, and other large complexes easier, safer, and smarter for visitors, tenants, and management.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission-vision" class="section bg-light fade-in">
+            <div class="container">
+                <div class="flex-container">
+                    <div class="card">
+                        <img src="africa-icon.png" alt="Africa Icon" class="card-icon">
+                        <h3>Our Mission</h3>
+                        <p>To revolutionize how people move and interact within large facilities by delivering simple, secure, and intelligent navigation solutions.</p>
+                    </div>
+                    <div class="card">
+                        <img src="africa-icon.png" alt="Africa Icon" class="card-icon">
+                        <h3>Our Vision</h3>
+                        <p>To become Africa’s leading provider of indoor navigation and smart facility management solutions, making spaces more connected, accessible, and user-friendly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="section fade-in">
+            <div class="container">
+                <h2>Our Solutions</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623085/uozdh7gd56ehww8ufzas.png" alt="Navigation Icon" class="icon">
+                        <h4>AI Indoor Navigation</h4>
+                        <p>Guiding visitors to shops, restaurants, restrooms, and services with ease.</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623083/tg9sl3dtm6pflxqls1xr.png" alt="Security Icon" class="icon">
+                        <h4>Smart Security Integration</h4>
+                        <p>Linking cameras and sensors to improve safety and quick emergency response.</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623131/evanbyd4sucmdq2o4xbn.png" alt="Insights Icon" class="icon">
+                        <h4>Visitor Experience Insights</h4>
+                        <p>Data-driven analytics on visitor flow (with privacy safeguards).</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623131/evanbyd4sucmdq2o4xbn.png" alt="Tenant Icon" class="icon">
+                        <h4>Tenant Support</h4>
+                        <p>Helping businesses inside malls gain visibility and attract more customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="section bg-light fade-in">
+            <div class="container">
+                <h2>Why InovaRoute?</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623131/evanbyd4sucmdq2o4xbn.png" alt="Innovation Icon" class="icon">
+                        <h4>Innovation</h4>
+                        <p>We leverage AI and advanced technology to solve modern urban and indoor challenges.</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623083/tg9sl3dtm6pflxqls1xr.png" alt="Security & Privacy Icon" class="icon">
+                        <h4>Security & Privacy</h4>
+                        <p>Built with strong data protection and safety standards.</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623131/evanbyd4sucmdq2o4xbn.png" alt="Partnership Icon" class="icon">
+                        <h4>Partnership Approach</h4>
+                        <p>Tailored solutions to meet client-specific needs.</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://res.cloudinary.com/do638w6yq/image/upload/v1758623131/evanbyd4sucmdq2o4xbn.png" alt="Impact Icon" class="icon">
+                        <h4>Impact</h4>
+                        <p>Enhances customer experience, boosts tenant sales, and strengthens facility reputation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="value" class="section fade-in">
+            <div class="container">
+                <h2>Value to Malls & Complexes</h2>
+                <ul>
+                    <li>Enhance customer safety and emergency response.</li>
+                    <li>Improve visitor navigation efficiency within facilities.</li>
+                    <li>Create a modern digital experience that attracts and retains customers.</li>
+                    <li>Position the facility as a leader in smart technology adoption.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section bg-light fade-in">
+            <div class="container">
+                <h2>Testimonials</h2>
+                <div class="flex-container">
+                    <div class="card testimonial-card">
+                        <p class="quote">“InovaMap represents a new era of smart navigation in Kenya. Our vision is to make every building — from hospitals to malls — easily accessible through intelligent indoor guidance.”</p>
+                        <p class="source"><strong>— Victor Kyeva</strong>, Founder, InovaRoute Tech</p>
+                    </div>
+                    <div class="card testimonial-card">
+                        <p class="quote">“I used InovaMap during a hospital visit, and it made navigation effortless. I quickly found the exact ward I was looking for without asking anyone for directions — it’s simply brilliant!”</p>
+                        <p class="source"><strong>— Boniface Kitivo</strong>, Early User & Tech Enthusiast</p>
+                    </div>
+                    <div class="card testimonial-card">
+                        <p class="quote">“InovaMap offers great value to both customers and management. It helps decongest hallways, saves staff time, and improves the overall experience for visitors.”</p>
+                        <p class="source"><strong>— Grace Mwende</strong>, Mall Operations Manager</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section fade-in">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <!-- Contact Details -->
+                <div class="contact-details">
+                    <p><strong>InovaRoute</strong></p>
+                    <p><strong>Location:</strong> 84 Riverside Dr, Nairobi</p>
+                    <p><strong>Email:</strong> <a href="mailto:info@inovaroute.co.ke">info@inovaroute.co.ke</a></p>
+                    
+                    <!-- 1. Updated Social Media Links with Icons -->
+                    <div class="social-links">
+                        <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/inovaroutetech?igsh=aXVvbjA5ZzNsaHh5" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BY43MmHNZ/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <!-- If a Twitter/X handle is needed, it would look like this: -->
+                        <!-- <a href="#" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a> -->
+                    </div>
+                </div>
+
+                <!-- 2. Email Contact Form -->
+                <div class="contact-form-container">
+                    <h3>Send Us a Message</h3>
+                    <!--
+                        NOTE: For a contact form to send emails directly, 
+                        it requires a server-side script (like PHP, Node.js, or a service like Formspree). 
+                        Since we can only modify client-side code, this form uses a mailto: action 
+                        to open the user's default email client, which is the standard direct-to-email method 
+                        for pure HTML/CSS/JS sites.
+                    -->
+                    <form action="mailto:info@inovaroute.co.ke" method="post" enctype="text/plain" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="body" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h2 class="footer-logo">InovaRoute</h2>
+                    <p class="footer-tagline">AI-Powered Indoor Navigation & Smart Facility Solutions.</p>
+                    <a href="#" class="btn-primary footer-cta">Launch InovaMap</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#solutions">AI Indoor Navigation</a></li>
+                        <li><a href="#solutions">Smart Security Integration</a></li>
+                        <li><a href="#solutions">Visitor Experience Insights</a></li>
+                        <li><a href="#solutions">Tenant Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about-us">About Us</a></li>
+                        <li><a href="#mission-vision">Mission &amp; Vision</a></li>
+                        <li><a href="#why-us">Why InovaRoute</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#contact">Get in Touch</a></li>
+                        <li><a href="mailto:info@inovaroute.co.ke">info@inovaroute.co.ke</a></li>
+                        <li>84 Riverside Dr, Nairobi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 InovaRoute. All Rights Reserved.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/inovaroutetech?igsh=aXVvbjA5ZzNsaHh5" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1BY43MmHNZ/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
