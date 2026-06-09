@@ -28,7 +28,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .section {
-  padding: var(--sp-8) 0;
+  padding: 100px 0;
 }
 
 .section--dark {
@@ -43,6 +43,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 .section--light {
   background: var(--c-bg-light);
+}
+
+/* Clean alternating light section used instead of dark sections */
+.section--subtle {
+  background: #f4f7fb;
 }
 
 /* === TYPOGRAPHY === */
@@ -89,7 +94,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--sp-6);
+  margin-bottom: 56px;
 }
 
 .section-header .section-sub {
@@ -341,11 +346,13 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 .hero::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: linear-gradient(135deg, #080f1a 0%, #0a1628 55%, #0d1f3a 100%);
-  z-index: -1;
+  z-index: 0;
 }
+
+.hero-copy, .hero-visual { position: relative; z-index: 1; }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -631,7 +638,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-4);
+  gap: 32px;
 }
 
 .product-card {
@@ -726,7 +733,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   flex: 0 0 auto;
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(0,212,255,0.15), rgba(0,212,255,0.4), rgba(0,212,255,0.15));
+  background: linear-gradient(90deg, rgba(52,152,219,0.15), rgba(52,152,219,0.4), rgba(52,152,219,0.15));
   margin-top: 36px;
   position: relative;
   overflow: hidden;
@@ -738,7 +745,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   top: 0; left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--c-cyan), transparent);
+  background: linear-gradient(90deg, transparent, var(--c-blue), transparent);
   animation: flow 2s linear infinite;
 }
 
@@ -750,8 +757,9 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(15,184,160,0.08));
-  border: 1.5px solid rgba(0, 212, 255, 0.3);
+  background: linear-gradient(135deg, #e8f4fd, #e0f7f4);
+  border: 1.5px solid rgba(52, 152, 219, 0.25);
+  color: var(--c-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -761,22 +769,22 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .hiw-step:hover .hiw-num {
-  background: linear-gradient(135deg, rgba(0,212,255,0.3), rgba(15,184,160,0.2));
-  border-color: var(--c-cyan);
-  box-shadow: var(--sh-glow);
+  background: linear-gradient(135deg, #d0ebf8, #ccf4ee);
+  border-color: var(--c-blue);
+  box-shadow: 0 4px 20px rgba(52,152,219,0.2);
   transform: scale(1.08);
 }
 
 .hiw-step h4 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--c-text-dark);
   margin-bottom: 6px;
 }
 
 .hiw-step p {
   font-size: 0.8rem;
-  color: var(--c-text-dim);
+  color: var(--c-text-body);
   line-height: 1.6;
 }
 
@@ -787,7 +795,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .solutions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-4);
+  gap: 32px;
 }
 
 .solution-card {
@@ -855,14 +863,17 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   gap: var(--sp-3);
   padding: var(--sp-3);
   border-radius: var(--r-md);
-  border: 1px solid var(--c-border-dark);
-  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--c-border);
+  background: #fff;
+  box-shadow: var(--sh-sm);
   transition: all var(--t-base);
 }
 
 .asset-feature:hover {
-  background: rgba(0,212,255,0.06);
-  border-color: rgba(0,212,255,0.25);
+  background: #f0f9ff;
+  border-color: rgba(52,152,219,0.3);
+  box-shadow: var(--sh-md);
+  transform: translateX(4px);
 }
 
 .asset-feat-icon {
@@ -882,13 +893,13 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .asset-feat-text h5 {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--c-text-dark);
   margin-bottom: 3px;
 }
 
 .asset-feat-text p {
   font-size: 0.8rem;
-  color: var(--c-text-dim);
+  color: var(--c-text-body);
   line-height: 1.5;
 }
 
@@ -1132,10 +1143,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .demo-controls {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--c-border-dark);
+  background: #fff;
+  border: 1px solid var(--c-border);
   border-radius: var(--r-xl);
   padding: var(--sp-4);
+  box-shadow: var(--sh-md);
   display: flex;
   flex-direction: column;
   gap: var(--sp-3);
@@ -1143,10 +1155,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 .demo-controls label {
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  color: var(--c-text-dim);
+  color: var(--c-text-body);
   display: block;
   margin-bottom: 6px;
 }
@@ -1160,9 +1172,9 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   flex: 1;
   padding: 7px;
   border-radius: var(--r-sm);
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.5);
+  background: var(--c-bg-light);
+  border: 1px solid var(--c-border);
+  color: var(--c-text-body);
   font-size: 0.8rem;
   font-weight: 600;
   transition: all var(--t-fast);
@@ -1170,9 +1182,9 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .floor-tab.active {
-  background: rgba(0,212,255,0.15);
-  border-color: var(--c-cyan);
-  color: var(--c-cyan);
+  background: rgba(52,152,219,0.1);
+  border-color: var(--c-blue);
+  color: var(--c-blue);
 }
 
 .demo-origin-display {
@@ -1191,10 +1203,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .demo-select {
   width: 100%;
   padding: 9px 12px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--c-bg-light);
+  border: 1.5px solid var(--c-border);
   border-radius: var(--r-sm);
-  color: #fff;
+  color: var(--c-text-dark);
   font-size: 0.85rem;
   font-family: var(--font);
   appearance: none;
@@ -1204,10 +1216,11 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 .demo-select:focus {
   outline: none;
-  border-color: var(--c-cyan);
+  border-color: var(--c-blue);
+  box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
 }
 
-.demo-select option { background: #0d1b2a; }
+.demo-select option { background: #fff; color: var(--c-text-dark); }
 
 .demo-find-btn {
   width: 100%;
@@ -1255,7 +1268,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   align-items: center;
   gap: 8px;
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.8);
+  color: var(--c-text-body);
 }
 
 .demo-result-row i {
@@ -1994,7 +2007,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 @media (max-width: 680px) {
-  .section { padding: var(--sp-7) 0; }
+  .section { padding: 64px 0; }
   .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(8,15,26,0.98); padding: var(--sp-3) 0; border-bottom: 1px solid rgba(0,212,255,0.1); }
   .nav-links.open { display: flex; }
   .nav-links .nav-link { padding: 12px var(--sp-4); border-bottom: none; }
