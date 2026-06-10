@@ -3091,6 +3091,83 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 
 /* ============================================================
+   SEARCH OVERLAY
+   ============================================================ */
+
+.search-overlay {
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.09);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  z-index: 490;
+  transform: translateY(-12px);
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  pointer-events: none;
+}
+.search-overlay.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.search-overlay-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 20px var(--sp-4) 24px;
+}
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+.search-input-icon { color: #3498db; font-size: 1rem; flex-shrink: 0; }
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #0c1630;
+  background: transparent;
+}
+.search-input::placeholder { color: #94a3b8; font-weight: 400; }
+.search-close-btn {
+  background: none; border: none; cursor: pointer;
+  color: #94a3b8; font-size: 1rem; padding: 4px 6px;
+  transition: color 0.15s; border-radius: 4px;
+}
+.search-close-btn:hover { color: #0c1630; background: rgba(0,0,0,0.05); }
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4px;
+}
+.search-result-item {
+  display: flex; gap: 11px; align-items: flex-start;
+  padding: 10px 12px; border-radius: 8px;
+  text-decoration: none; transition: background 0.15s;
+}
+.search-result-item:hover { background: rgba(52,152,219,0.07); }
+.search-result-icon {
+  width: 32px; height: 32px; border-radius: 7px;
+  background: rgba(52,152,219,0.1);
+  border: 1px solid rgba(52,152,219,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; color: #3498db; flex-shrink: 0; margin-top: 1px;
+}
+.search-result-title { font-size: 0.85rem; font-weight: 700; color: #0c1630; margin-bottom: 2px; }
+.search-result-desc  { font-size: 0.72rem; color: #64748b; line-height: 1.4; }
+.search-no-results   { font-size: 0.85rem; color: #94a3b8; padding: 4px 12px; }
+.search-hint         { font-size: 0.75rem; color: #94a3b8; margin-bottom: 12px; }
+
+
+/* ============================================================
    DEMO MAP — LIVELY UPGRADES
    ============================================================ */
 

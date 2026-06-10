@@ -845,6 +845,87 @@ document.addEventListener('DOMContentLoaded', () => {
     indAnimFrame = requestAnimationFrame(indMoveStep);
   }
 
+  /* ----------------------------------------------------------
+     12. SITE SEARCH
+     ---------------------------------------------------------- */
+  const SEARCH_INDEX = [
+    { title: 'InovaMap',          desc: 'AI-powered indoor navigation — step-by-step routing on any floor',      url: 'products.html#inovamap',    icon: 'fa-map-marked-alt' },
+    { title: 'InovaNode',         desc: 'Wireless BLE asset tracking tags with 24-month battery life',            url: 'products.html#inovanode',   icon: 'fa-tag'            },
+    { title: 'InovaHub',          desc: 'Indoor BLE gateway — 3,000 m² coverage per unit, PoE powered',           url: 'products.html#inovahub',    icon: 'fa-wifi'           },
+    { title: 'Admin Dashboard',   desc: 'Live facility intelligence — assets, visitor flow, alerts',               url: 'products.html#dashboard',   icon: 'fa-chart-line'     },
+    { title: 'All Products',      desc: 'Full InovaRoute product ecosystem overview',                              url: 'products.html',             icon: 'fa-layer-group'    },
+    { title: 'How It Works',      desc: 'Building scan → digitization → hardware deploy → go live',               url: 'products.html#how-it-works',icon: 'fa-project-diagram'},
+    { title: 'Hospitals',         desc: 'Indoor navigation and asset tracking for hospitals and clinics',          url: 'industries.html?tab=hospital',   icon: 'fa-hospital-alt'   },
+    { title: 'Shopping Malls',    desc: 'Visitor navigation and store-finder for shopping malls',                  url: 'industries.html?tab=mall',       icon: 'fa-shopping-bag'   },
+    { title: 'Airports',          desc: 'Passenger wayfinding and asset tracking for airports',                    url: 'industries.html?tab=airport',    icon: 'fa-plane-departure'},
+    { title: 'Universities',      desc: 'Campus navigation for students, staff, and visitors',                     url: 'industries.html?tab=university', icon: 'fa-university'     },
+    { title: 'Corporate Offices', desc: 'Smart office navigation and facility management',                         url: 'industries.html?tab=office',     icon: 'fa-building'       },
+    { title: 'Live Demo',         desc: 'Try the interactive indoor navigation demo',                              url: 'industries.html',           icon: 'fa-play-circle'    },
+    { title: 'Request a Pilot',   desc: 'Start a free pilot deployment — get pricing within 24 hours',            url: 'contact.html',              icon: 'fa-paper-plane'    },
+    { title: 'About InovaRoute',  desc: 'Our mission, vision, and the team behind InovaRoute',                    url: 'about.html',                icon: 'fa-info-circle'    },
+    { title: 'Contact Us',        desc: 'Get in touch — info@inovaroute.co.ke · Nairobi, Kenya',                  url: 'contact.html',              icon: 'fa-envelope'       },
+    { title: 'BLE Technology',    desc: 'Bluetooth Low Energy 5.0 — how InovaRoute uses BLE for positioning',     url: 'products.html',             icon: 'fa-broadcast-tower'},
+    { title: 'Asset Tracking',    desc: 'Real-time location tracking for wheelchairs, equipment, and assets',      url: 'products.html#inovanode',   icon: 'fa-crosshairs'     },
+    { title: 'Indoor Navigation', desc: 'AI-powered wayfinding for large buildings — no app download required',   url: 'products.html#inovamap',    icon: 'fa-route'          },
+    { title: 'Facility Analytics',desc: 'Visitor flow heatmaps, dwell-time data, and occupancy reports',          url: 'products.html#dashboard',   icon: 'fa-chart-bar'      },
+  ];
+
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchInput   = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  const searchClose   = document.getElementById('searchClose');
+  const searchBtn     = document.querySelector('.nav-search-btn');
+
+  function openSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.add('open');
+    searchOverlay.setAttribute('aria-hidden', 'false');
+    setTimeout(() => searchInput && searchInput.focus(), 80);
+  }
+
+  function closeSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.remove('open');
+    searchOverlay.setAttribute('aria-hidden', 'true');
+    if (searchInput) searchInput.value = '';
+    if (searchResults) searchResults.innerHTML = '';
+  }
+
+  function renderResults(q) {
+    if (!q) { searchResults.innerHTML = '<p class="search-hint">Type to search pages, products, and industries…</p>'; return; }
+    const matches = SEARCH_INDEX.filter(item =>
+      item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q)
+    );
+    if (!matches.length) {
+      searchResults.innerHTML = '<p class="search-no-results">No results for "<strong>' + q + '</strong>"</p>';
+      return;
+    }
+    searchResults.innerHTML = '<div class="search-results-grid">' +
+      matches.map(item =>
+        '<a href="' + item.url + '" class="search-result-item" onclick="document.getElementById(\'searchOverlay\').classList.remove(\'open\')">' +
+          '<div class="search-result-icon"><i class="fas ' + item.icon + '"></i></div>' +
+          '<div><div class="search-result-title">' + item.title + '</div>' +
+          '<div class="search-result-desc">' + item.desc + '</div></div>' +
+        '</a>'
+      ).join('') +
+    '</div>';
+  }
+
+  if (searchBtn) {
+    searchBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      searchOverlay && searchOverlay.classList.contains('open') ? closeSearch() : openSearch();
+    });
+  }
+
+  if (searchClose)  searchClose.addEventListener('click', closeSearch);
+  if (searchInput)  searchInput.addEventListener('input', function() { renderResults(this.value.trim().toLowerCase()); });
+  if (searchOverlay) searchOverlay.addEventListener('click', function(e) { if (e.target === searchOverlay) closeSearch(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('open')) closeSearch();
+  });
+
   // Init industry page: activate tab from URL param or default to hospital
   if (indTabs.length) {
     const urlParams = new URLSearchParams(window.location.search);
