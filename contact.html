@@ -180,8 +180,47 @@
     </a>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html"      class="nav-link">Home</a></li>
-      <li><a href="products.html"   class="nav-link">Products</a></li>
-      <li><a href="industries.html" class="nav-link">Industries</a></li>
+      <li class="nav-item--has-dropdown">
+        <a href="products.html" class="nav-link">Products <i class="fas fa-chevron-down nav-chevron"></i></a>
+        <div class="nav-dropdown nav-dropdown--products">
+          <div class="ndp-grid">
+            <a href="products.html#inovamap" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-map-marked-alt"></i></div>
+              <div class="ndp-text"><h6>InovaMap</h6><p>Indoor navigation software</p></div>
+            </a>
+            <a href="products.html#inovanode" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-tag"></i></div>
+              <div class="ndp-text"><h6>InovaNode</h6><p>BLE asset tracking tags</p></div>
+            </a>
+            <a href="products.html#inovahub" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-wifi"></i></div>
+              <div class="ndp-text"><h6>InovaHub</h6><p>Indoor BLE gateway</p></div>
+            </a>
+            <a href="products.html#dashboard" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="ndp-text"><h6>Admin Dashboard</h6><p>Facility intelligence</p></div>
+            </a>
+          </div>
+          <div class="ndp-footer">
+            <a href="products.html">See all products <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item--has-dropdown">
+        <a href="industries.html" class="nav-link">Industries <i class="fas fa-chevron-down nav-chevron"></i></a>
+        <div class="nav-dropdown nav-dropdown--industries">
+          <ul class="ndi-list">
+            <li><a href="industries.html?tab=hospital"><i class="fas fa-hospital-alt"></i> Hospitals</a></li>
+            <li><a href="industries.html?tab=mall"><i class="fas fa-shopping-bag"></i> Shopping Malls</a></li>
+            <li><a href="industries.html?tab=airport"><i class="fas fa-plane-departure"></i> Airports</a></li>
+            <li><a href="industries.html?tab=university"><i class="fas fa-university"></i> Universities</a></li>
+            <li><a href="industries.html?tab=office"><i class="fas fa-building"></i> Corporate Offices</a></li>
+          </ul>
+          <div class="ndi-footer">
+            <a href="industries.html">Try Live Demo <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </li>
       <li><a href="about.html"      class="nav-link">About</a></li>
       <li><a href="contact.html"    class="nav-link">Contact</a></li>
     </ul>
