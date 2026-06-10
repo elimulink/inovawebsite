@@ -227,6 +227,17 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   flex-shrink: 0;
 }
 
+/* Official logo image */
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+/* Hide text name when logo image includes the wordmark */
+.nav-brand--logo-only .nav-name { display: none; }
+
+/* Fallback CSS grid logo (shown when no image) */
 .nav-logo {
   display: grid;
   grid-template-columns: 1fr 1fr;
