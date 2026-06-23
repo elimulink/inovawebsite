@@ -28,7 +28,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .section {
-  padding: 72px 0;
+  padding: 60px 0;
 }
 
 .section--dark {
@@ -345,7 +345,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
    ============================================================ */
 .hero {
   min-height: 100vh;
-  padding: calc(var(--nav-h) + var(--sp-8)) var(--sp-4) var(--sp-8);
+  padding: calc(var(--nav-h) + var(--sp-6)) var(--sp-4) var(--sp-6);
   background: linear-gradient(135deg, #0c1e3a 0%, #122848 55%, #183460 100%);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -396,7 +396,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-size: clamp(1.9rem, 4vw, 3rem);
   font-weight: 700;
   line-height: 1.1;
   color: #fff;
@@ -2056,7 +2056,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
    ============================================================ */
 .page-hero-section {
   background: linear-gradient(135deg, #0c1e3a 0%, #122848 55%, #183460 100%);
-  padding: calc(var(--nav-h) + 72px) 0 80px;
+  padding: calc(var(--nav-h) + 48px) 0 56px;
   text-align: center;
 }
 
@@ -2077,7 +2077,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 }
 
 .page-hero-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.15;
@@ -2505,10 +2505,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 /* Hero section – professional light theme */
 .hero-light-section {
   background: linear-gradient(145deg, #f5f7fb 0%, #eef3fa 50%, #f0f5fc 100%);
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
-  padding: calc(var(--nav-h) + 48px) 0 72px;
+  padding: calc(var(--nav-h) + 28px) 0 48px;
   overflow: hidden;
   position: relative;
 }
