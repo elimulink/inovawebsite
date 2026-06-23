@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="styles/variables.css">
   <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     /* Stepped form styles */
     .pilot-form-wrap {
@@ -703,32 +704,48 @@
     });
   }
 
+  // ── EmailJS config ── fill in your 3 keys from emailjs.com/account
+  const EMAILJS_SERVICE_ID  = 'service_oaqg9ul';
+  const EMAILJS_TEMPLATE_ID = 'template_pqd4dwl';
+  const EMAILJS_PUBLIC_KEY  = 'VO2VAFUcnlccvW-5g';
+
   function submitPilot() {
-    const name     = document.getElementById('p-name').value;
-    const company  = document.getElementById('p-company').value;
-    const email    = document.getElementById('p-email').value;
-    const country  = document.getElementById('p-country').value;
-    const floors   = document.getElementById('p-floors').value;
-    const users    = document.getElementById('p-users').value;
-    const usecase  = document.getElementById('p-usecase').value;
-    const role     = document.getElementById('p-role').value;
-    const phone    = document.getElementById('p-phone').value;
-    const notes    = document.getElementById('p-notes').value;
+    const btn = document.getElementById('submitPilotBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class=”fas fa-spinner fa-spin”></i> Sending…';
 
-    const body = `Pilot Request%0A%0AName: ${encodeURIComponent(name)}%0ARole: ${encodeURIComponent(role)}%0ACompany: ${encodeURIComponent(company)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0A%0ACountry: ${encodeURIComponent(country)}%0AFacility Type: ${encodeURIComponent(selectedFacilityType)}%0AFloors: ${encodeURIComponent(floors)}%0AExpected Users: ${encodeURIComponent(users)}%0A%0AUse Case:%0A${encodeURIComponent(usecase)}%0A%0ADemo Slot: ${encodeURIComponent(selectedSlot)}%0ANotes: ${encodeURIComponent(notes)}`;
+    const templateParams = {
+      facility_type : selectedFacilityType,
+      company       : document.getElementById('p-company').value,
+      country       : document.getElementById('p-country').value,
+      floors        : document.getElementById('p-floors').value,
+      daily_users   : document.getElementById('p-users').value,
+      use_case      : document.getElementById('p-usecase').value,
+      contact_name  : document.getElementById('p-name').value,
+      role          : document.getElementById('p-role').value,
+      contact_email : document.getElementById('p-email').value,
+      phone         : document.getElementById('p-phone').value,
+      demo_slot     : selectedSlot,
+      notes         : document.getElementById('p-notes').value
+    };
 
-    window.location.href = `mailto:info@inovaroute.co.ke?subject=Pilot Request "“ ${encodeURIComponent(company)}&body=${body}`;
-
-    window.analytics && window.analytics.track('pilot_form_submitted', {
-      facilityType: selectedFacilityType,
-      country, floors, users, slot: selectedSlot
-    });
-
-    setTimeout(() => {
-      document.getElementById('form-step-4').classList.remove('active');
-      document.getElementById('stepProgress').style.display = 'none';
-      document.getElementById('pilotSuccess').classList.add('show');
-    }, 500);
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+      .then(() => {
+        window.analytics && window.analytics.track('pilot_form_submitted', {
+          facilityType: selectedFacilityType,
+          country: templateParams.country,
+          floors: templateParams.floors,
+          slot: selectedSlot
+        });
+        document.getElementById('form-step-4').classList.remove('active');
+        document.getElementById('stepProgress').style.display = 'none';
+        document.getElementById('pilotSuccess').classList.add('show');
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<i class=”fas fa-paper-plane”></i> Submit Request';
+        alert('Something went wrong. Please email us directly at info@inovaroute.co.ke');
+      });
   }
 </script>
 </body>
