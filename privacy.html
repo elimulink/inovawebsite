@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — InovaRoute</title>
+  <meta name="description" content="Learn how InovaRoute collects, uses, and protects your data across our AI indoor navigation and smart facility platform.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='14' height='14' x='1' y='1' rx='3' fill='%233498db'/><rect width='14' height='14' x='17' y='1' rx='3' fill='%232ecc71'/><rect width='14' height='14' x='1' y='17' rx='3' fill='%23f39c12'/><rect width='14' height='14' x='17' y='17' rx='3' fill='%23e74c3c'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .legal-hero {
+      background: linear-gradient(135deg, #f0fff8 0%, #eafaf4 100%);
+      border-bottom: 1px solid var(--c-border);
+      padding: 72px 0 48px;
+      text-align: center;
+    }
+    .legal-hero .section-badge { margin: 0 auto var(--sp-3); }
+    .legal-hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: var(--c-text-dark); margin-bottom: var(--sp-3); }
+    .legal-hero p { color: var(--c-text-muted); font-size: 0.95rem; max-width: 520px; margin: 0 auto; }
+    .legal-meta { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: var(--sp-5); font-size: 0.82rem; color: var(--c-text-muted); }
+    .legal-meta span { display: flex; align-items: center; gap: 6px; }
+
+    .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; padding: 64px 0; }
+    @media (max-width: 768px) { .legal-layout { grid-template-columns: 1fr; } }
+
+    .legal-toc { position: sticky; top: 96px; background: var(--c-bg-light); border: 1px solid var(--c-border); border-radius: var(--r-lg); padding: var(--sp-5); }
+    .legal-toc h5 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--c-text-muted); margin-bottom: var(--sp-3); }
+    .legal-toc ol { padding-left: 18px; margin: 0; }
+    .legal-toc li { margin-bottom: 8px; }
+    .legal-toc a { font-size: 0.82rem; color: var(--c-text-body); text-decoration: none; line-height: 1.4; }
+    .legal-toc a:hover { color: var(--c-teal); }
+
+    .legal-body h2 { font-size: 1.2rem; font-weight: 700; color: var(--c-text-dark); margin: 48px 0 12px; padding-top: 8px; border-top: 2px solid var(--c-border); }
+    .legal-body h2:first-child { margin-top: 0; border-top: none; }
+    .legal-body p { font-size: 0.92rem; color: var(--c-text-body); line-height: 1.75; margin-bottom: 14px; }
+    .legal-body ul { padding-left: 20px; margin-bottom: 14px; }
+    .legal-body ul li { font-size: 0.92rem; color: var(--c-text-body); line-height: 1.7; margin-bottom: 6px; }
+    .legal-body strong { color: var(--c-text-dark); }
+    .legal-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--c-text-dark); margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--c-border); }
+
+    .legal-contact-box { background: linear-gradient(135deg, #f0fff8, #eafaf4); border: 1px solid rgba(15,184,160,0.2); border-radius: var(--r-lg); padding: var(--sp-6); margin-top: 48px; text-align: center; }
+    .legal-contact-box h3 { font-size: 1rem; font-weight: 700; color: var(--c-text-dark); margin-bottom: 8px; }
+    .legal-contact-box p { font-size: 0.88rem; color: var(--c-text-muted); margin-bottom: var(--sp-4); }
+    .legal-contact-box a.btn { display: inline-flex; align-items: center; gap: 8px; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar--light" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand nav-brand--logo-only">
+      <img src="assets/images/logo.png" alt="InovaRoute" class="nav-logo-img" onerror="this.style.display=`none`;this.nextElementSibling.style.display=`flex`">
+      <span class="nav-name" style="display:none">InovaRoute</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item--has-dropdown">
+        <a href="products.html" class="nav-link">Products <i class="fas fa-chevron-down nav-chevron"></i></a>
+        <div class="nav-dropdown nav-dropdown--products">
+          <div class="ndp-grid">
+            <a href="products.html#inovamap" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-map-marked-alt"></i></div>
+              <div class="ndp-text"><h6>InovaMap</h6><p>Indoor navigation software</p></div>
+            </a>
+            <a href="products.html#inovanode" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-tag"></i></div>
+              <div class="ndp-text"><h6>InovaNode</h6><p>BLE asset tracking tags</p></div>
+            </a>
+            <a href="products.html#inovahub" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-wifi"></i></div>
+              <div class="ndp-text"><h6>InovaHub</h6><p>Indoor BLE gateway</p></div>
+            </a>
+            <a href="products.html#dashboard" class="ndp-item">
+              <div class="ndp-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="ndp-text"><h6>Admin Dashboard</h6><p>Facility intelligence</p></div>
+            </a>
+          </div>
+          <div class="ndp-footer">
+            <a href="products.html">See all products <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item--has-dropdown">
+        <a href="industries.html" class="nav-link">Industries <i class="fas fa-chevron-down nav-chevron"></i></a>
+        <div class="nav-dropdown nav-dropdown--industries">
+          <ul class="ndi-list">
+            <li><a href="industries.html?tab=hospital"><i class="fas fa-hospital-alt"></i> Hospitals</a></li>
+            <li><a href="industries.html?tab=mall"><i class="fas fa-shopping-bag"></i> Shopping Malls</a></li>
+            <li><a href="industries.html?tab=airport"><i class="fas fa-plane-departure"></i> Airports</a></li>
+            <li><a href="industries.html?tab=university"><i class="fas fa-university"></i> Universities</a></li>
+            <li><a href="industries.html?tab=office"><i class="fas fa-building"></i> Corporate Offices</a></li>
+          </ul>
+          <div class="ndi-footer">
+            <a href="industries.html">Try Live Demo <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="nav-search-btn" aria-label="Search"><i class="fas fa-search"></i> Search</a>
+      <a href="https://inovamap-b3f26.web.app/" class="nav-signin" target="_blank">Sign in</a>
+      <a href="https://inovamap-b3f26.web.app/" class="nav-avatar" aria-label="Account" target="_blank">IR</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="container">
+    <div class="section-badge"><i class="fas fa-shield-alt"></i> Privacy</div>
+    <h1>Privacy Policy</h1>
+    <p>We take your privacy seriously. Here is how InovaRoute collects, uses, and protects your information.</p>
+    <div class="legal-meta">
+      <span><i class="fas fa-calendar-alt"></i> Effective: June 24, 2026</span>
+      <span><i class="fas fa-map-marker-alt"></i> Governing Law: Kenya</span>
+      <span><i class="fas fa-envelope"></i> info@inovaroute.co.ke</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTENT -->
+<section class="section">
+  <div class="container">
+    <div class="legal-layout">
+
+      <!-- TABLE OF CONTENTS -->
+      <aside class="legal-toc">
+        <h5>Contents</h5>
+        <ol>
+          <li><a href="#collect">Information We Collect</a></li>
+          <li><a href="#use">How We Use It</a></li>
+          <li><a href="#ownership">Ownership</a></li>
+          <li><a href="#sharing">Sharing</a></li>
+          <li><a href="#retention">Data Retention</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#rights">Your Rights</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </aside>
+
+      <!-- BODY -->
+      <div class="legal-body">
+
+        <p style="background:var(--c-bg-light);border:1px solid var(--c-border);border-radius:var(--r-md);padding:var(--sp-4) var(--sp-5);font-size:0.9rem;color:var(--c-text-body);line-height:1.7;margin-bottom:var(--sp-6);">Your privacy matters to us. This Policy explains how InovaRoute collects, uses, and protects your information when you use our Services.</p>
+
+        <h2 id="collect">Information We Collect</h2>
+
+        <h3>Account Information</h3>
+        <ul>
+          <li>name;</li>
+          <li>email;</li>
+          <li>login credentials.</li>
+        </ul>
+
+        <h3>Building &amp; Mapping Data</h3>
+        <ul>
+          <li>uploaded floor plans;</li>
+          <li>POIs;</li>
+          <li>route graphs;</li>
+          <li>map settings.</li>
+        </ul>
+
+        <h3>Device Information</h3>
+        <ul>
+          <li>browser;</li>
+          <li>device type;</li>
+          <li>operating system.</li>
+        </ul>
+
+        <h3>Usage Information</h3>
+        <ul>
+          <li>search activity;</li>
+          <li>navigation interactions;</li>
+          <li>diagnostics.</li>
+        </ul>
+
+        <h3>Location Information</h3>
+        <p>Only collected when permission is granted.</p>
+
+        <h2 id="use">How We Use Information</h2>
+        <p>We use information to:</p>
+        <ul>
+          <li>provide navigation;</li>
+          <li>improve mapping quality;</li>
+          <li>maintain security;</li>
+          <li>personalize experience;</li>
+          <li>support customers.</li>
+        </ul>
+
+        <h2 id="ownership">Ownership</h2>
+        <p>Users retain ownership of uploaded building data.</p>
+
+        <h2 id="sharing">Sharing</h2>
+        <p>We do not sell personal information. We may share information:</p>
+        <ul>
+          <li>with service providers;</li>
+          <li>when legally required;</li>
+          <li>to protect users.</li>
+        </ul>
+
+        <h2 id="retention">Data Retention</h2>
+        <p>Data may be retained while accounts remain active. Users may request deletion.</p>
+
+        <h2 id="security">Security</h2>
+        <p>We apply technical and operational safeguards but cannot guarantee absolute security.</p>
+
+        <h2 id="rights">Your Rights</h2>
+        <p>Where applicable, users may:</p>
+        <ul>
+          <li>access data;</li>
+          <li>correct data;</li>
+          <li>delete data;</li>
+          <li>export data.</li>
+        </ul>
+
+        <h2 id="contact">Contact</h2>
+        <p>For privacy-related enquiries:</p>
+        <ul>
+          <li><a href="mailto:privacy@inovaroute.com">privacy@inovaroute.com</a></li>
+        </ul>
+
+        <div class="legal-contact-box">
+          <h3>Questions about your data?</h3>
+          <p>Reach out and we will respond within 48 hours.</p>
+          <a href="contact.html" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="assets/images/logo.png" alt="InovaRoute" style="height:32px;width:auto;" onerror="this.style.display=`none`;this.nextElementSibling.style.display=`inline`">
+          <span class="f-name">InovaRoute</span>
+        </div>
+        <p class="footer-tagline">AI-Powered Indoor Navigation &amp; Smart Facility Platform.</p>
+        <div class="footer-ctas">
+          <a href="industries.html" class="btn btn-primary btn-sm">Live Demo</a>
+          <a href="contact.html" class="btn btn-secondary btn-sm">Request Pilot</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#inovamap">InovaMap</a></li>
+          <li><a href="products.html#inovanode">InovaNode</a></li>
+          <li><a href="products.html#inovahub">InovaHub</a></li>
+          <li><a href="products.html#dashboard">Admin Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+          <li><a href="about.html#roadmap">Roadmap</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="industries.html?tab=hospital">Hospitals</a></li>
+          <li><a href="industries.html?tab=mall">Shopping Malls</a></li>
+          <li><a href="industries.html?tab=airport">Airports</a></li>
+          <li><a href="industries.html?tab=university">Universities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Get in Touch</a></li>
+          <li><a href="mailto:info@inovaroute.co.ke">info@inovaroute.co.ke</a></li>
+          <li>84 Riverside Dr, Nairobi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 InovaRoute Tech. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/inovaroutetech?igsh=aXVvbjA5ZzNsaHh5" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1BY43MmHNZ/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-overlay-inner">
+    <div class="search-input-wrap">
+      <i class="fas fa-search search-input-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search products, industries, features..." autocomplete="off" spellcheck="false">
+      <button class="search-close-btn" id="searchClose" aria-label="Close search"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="search-results" id="searchResults"><p class="search-hint">Type to search pages, products, and industries...</p></div>
+  </div>
+</div>
+<div class="assist" id="assist">
+  <button class="assist-bubble" id="assist-open" aria-label="Open assistant"><i class="fas fa-comment-dots"></i></button>
+  <div class="assist-panel" id="assist-panel">
+    <div class="assist-header">
+      <h4>Need help?</h4>
+      <button class="assist-close" id="assist-close">&times;</button>
+    </div>
+    <p class="assist-text">InovaRoute support is available 24/7.</p>
+    <div class="assist-actions">
+      <a href="https://wa.me/message/SHVGJTXQXNXTI1" target="_blank" class="assist-btn-main"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      <button class="assist-btn-dismiss" id="assist-no">No thanks</button>
+    </div>
+  </div>
+</div>
+
+<script src="scripts/main.js" defer></script>
+</body>
+</html>
